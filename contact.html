@@ -6,24 +6,28 @@
 
     <title>Contact | Silveira High Sports Gallery</title>
 
+    <!-- Font Awesome for real social media logos -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
     <style>
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-            font-family: Arial, sans-serif;
-            background: #f4f6f8;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f5f5;
             color: #222;
-            line-height: 1.6;
         }
 
+        /* HEADER */
         header {
-            background: #7b1230;
+            background: linear-gradient(135deg, #5c0d24, #8b1638);
             color: white;
-            padding: 25px 20px;
+            padding: 28px 20px;
             text-align: center;
         }
 
@@ -34,167 +38,301 @@
 
         header p {
             font-size: 16px;
+            opacity: 0.9;
         }
 
+        /* NAVIGATION */
         nav {
-            background: #222;
+            background: #111;
             display: flex;
             justify-content: center;
+            align-items: center;
             flex-wrap: wrap;
+            gap: 5px;
             padding: 12px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
         nav a {
             color: white;
             text-decoration: none;
-            padding: 10px 18px;
-            margin: 4px;
-            border-radius: 5px;
+            padding: 11px 18px;
+            border-radius: 6px;
             font-weight: bold;
+            transition: 0.3s;
         }
 
-        nav a:hover {
-            background: #7b1230;
+        nav a:hover,
+        nav a.active {
+            background: #8b1638;
         }
 
-        main {
-            max-width: 900px;
-            margin: 40px auto;
+        /* HERO */
+        .hero {
+            background:
+                linear-gradient(rgba(92, 13, 36, 0.88), rgba(17, 17, 17, 0.88)),
+                url("images/sports.jpg") center/cover;
+
+            min-height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 40px 20px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h2 {
+            font-size: 44px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 19px;
+            line-height: 1.7;
+        }
+
+        /* MAIN */
+        .container {
+            max-width: 1100px;
+            margin: 50px auto;
             padding: 0 20px;
         }
 
-        .page-title {
+        .section-title {
             text-align: center;
             margin-bottom: 35px;
         }
 
-        .page-title h2 {
-            color: #7b1230;
+        .section-title h2 {
+            color: #5c0d24;
             font-size: 32px;
             margin-bottom: 10px;
         }
 
-        .page-title p {
-            color: #555;
+        .section-title p {
+            color: #666;
         }
 
-        .contact-container {
+        /* CONTACT CARDS */
+        .contact-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(3, 1fr);
             gap: 25px;
+            margin-bottom: 55px;
         }
 
-        .contact-box {
+        .contact-card {
             background: white;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            padding: 30px 20px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: 0.3s;
         }
 
-        .contact-box h3 {
-            color: #7b1230;
-            margin-bottom: 18px;
-            font-size: 23px;
+        .contact-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 28px rgba(0,0,0,0.14);
         }
 
-        .contact-item {
-            margin-bottom: 18px;
+        .contact-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 18px;
+            background: #5c0d24;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 28px;
         }
 
-        .contact-item strong {
-            display: block;
-            color: #222;
-            margin-bottom: 4px;
+        .contact-card h3 {
+            color: #5c0d24;
+            margin-bottom: 12px;
         }
 
-        .contact-item a {
-            color: #7b1230;
-            text-decoration: none;
+        .contact-card p {
+            color: #666;
+            line-height: 1.6;
         }
 
-        .contact-item a:hover {
-            text-decoration: underline;
+        /* SOCIAL MEDIA */
+        .social-section {
+            background: linear-gradient(135deg, #5c0d24, #8b1638);
+            color: white;
+            padding: 45px 25px;
+            border-radius: 20px;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .social-section h2 {
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        .social-section p {
+            margin-bottom: 30px;
+            opacity: 0.9;
         }
 
         .social-links {
             display: flex;
-            gap: 12px;
+            justify-content: center;
+            align-items: center;
             flex-wrap: wrap;
-            margin-top: 20px;
+            gap: 18px;
         }
 
-        .social-links a {
-            display: inline-block;
-            background: #7b1230;
-            color: white;
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: white;
+            color: #222;
             text-decoration: none;
-            padding: 10px 15px;
-            border-radius: 6px;
+            padding: 13px 20px;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: 0.3s;
+            min-width: 130px;
+            justify-content: center;
         }
 
-        .social-links a:hover {
-            background: #5c0d24;
+        .social-link i {
+            font-size: 22px;
         }
 
+        .social-link:hover {
+            transform: translateY(-5px) scale(1.03);
+        }
+
+        .facebook:hover {
+            color: #1877f2;
+        }
+
+        .instagram:hover {
+            color: #e4405f;
+        }
+
+        .youtube:hover {
+            color: #ff0000;
+        }
+
+        .tiktok:hover {
+            color: #111;
+        }
+
+        /* MESSAGE SECTION */
         .message-box {
             background: white;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            margin-top: 25px;
+            border-radius: 18px;
+            padding: 40px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            text-align: center;
+            margin-bottom: 50px;
         }
 
-        .message-box h3 {
-            color: #7b1230;
-            margin-bottom: 12px;
+        .message-box h2 {
+            color: #5c0d24;
+            margin-bottom: 15px;
+            font-size: 30px;
         }
 
         .message-box p {
-            color: #555;
+            color: #666;
+            line-height: 1.8;
+            max-width: 750px;
+            margin: auto;
         }
 
-        .back-button {
-            text-align: center;
-            margin: 35px 0;
-        }
-
-        .back-button a {
+        .home-button {
             display: inline-block;
-            background: #7b1230;
+            margin-top: 25px;
+            background: #5c0d24;
             color: white;
             text-decoration: none;
-            padding: 12px 25px;
-            border-radius: 6px;
+            padding: 13px 25px;
+            border-radius: 8px;
             font-weight: bold;
+            transition: 0.3s;
         }
 
-        .back-button a:hover {
-            background: #5c0d24;
+        .home-button:hover {
+            background: #8b1638;
+            transform: translateY(-3px);
         }
 
+        /* FOOTER */
         footer {
-            background: #222;
+            background: #111;
             color: white;
             text-align: center;
-            padding: 25px 15px;
-            margin-top: 50px;
+            padding: 30px 20px;
+            margin-top: 40px;
         }
 
         footer p {
-            margin: 5px 0;
+            margin-bottom: 8px;
         }
 
-        @media (max-width: 700px) {
-            .contact-container {
+        footer span {
+            color: #d9a0b1;
+        }
+
+        /* MOBILE */
+        @media (max-width: 800px) {
+            .contact-grid {
                 grid-template-columns: 1fr;
             }
 
+            .hero h2 {
+                font-size: 34px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            nav a {
+                padding: 9px 12px;
+                font-size: 14px;
+            }
+
+            .message-box {
+                padding: 30px 20px;
+            }
+        }
+
+        @media (max-width: 500px) {
             header h1 {
                 font-size: 25px;
             }
 
-            .page-title h2 {
-                font-size: 26px;
+            .hero {
+                min-height: 260px;
+            }
+
+            .hero h2 {
+                font-size: 29px;
+            }
+
+            .social-links {
+                flex-direction: column;
+            }
+
+            .social-link {
+                width: 100%;
+                max-width: 250px;
             }
         }
     </style>
@@ -202,95 +340,154 @@
 
 <body>
 
+    <!-- HEADER -->
     <header>
         <h1>Silveira High Sports Gallery</h1>
-        <p>Capturing the action, talent and memories of our school</p>
+        <p>Celebrating Sports, Talent and School Memories</p>
     </header>
 
+    <!-- NAVIGATION -->
     <nav>
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="pictures.html">Pictures</a>
         <a href="videos.html">Videos</a>
-        <a href="contact.html">Contact</a>
+        <a href="contact.html" class="active">Contact</a>
     </nav>
 
-    <main>
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2>📞 Get In Touch</h2>
+            <p>
+                Have a question, sports memory or school event you would like
+                featured in the gallery? Connect with us through our contact
+                information and social media platforms.
+            </p>
+        </div>
+    </section>
 
-        <section class="page-title">
-            <h2>📞 Contact Us</h2>
-            <p>Get in touch with Silveira High Sports Gallery.</p>
-        </section>
+    <!-- MAIN CONTENT -->
+    <main class="container">
 
-        <section class="contact-container">
+        <div class="section-title">
+            <h2>Contact Information</h2>
+            <p>Connect with Silveira High Sports Gallery</p>
+        </div>
 
-            <div class="contact-box">
-                <h3>School Information</h3>
+        <!-- CONTACT CARDS -->
+        <section class="contact-grid">
 
-                <div class="contact-item">
-                    <strong>🏫 School</strong>
-                    Silveira High School
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <i class="fa-solid fa-school"></i>
                 </div>
 
-                <div class="contact-item">
-                    <strong>📍 Location</strong>
-                    Zimbabwe
-                </div>
-
-                <div class="contact-item">
-                    <strong>📧 Email</strong>
-                    <a href="mailto:info@silveirahighschool.com">
-                        info@silveirahighschool.com
-                    </a>
-                </div>
-            </div>
-
-            <div class="contact-box">
-                <h3>Follow Us</h3>
+                <h3>School</h3>
 
                 <p>
-                    Follow our social media pages for updates, sports activities
-                    and school events.
+                    Silveira High School<br>
+                    Zimbabwe
                 </p>
+            </div>
 
-                <div class="social-links">
-
-                    <a href="#" target="_blank">
-                        📘 Facebook
-                    </a>
-
-                    <a href="#" target="_blank">
-                        📸 Instagram
-                    </a>
-
-                    <a href="#" target="_blank">
-                        ▶️ YouTube
-                    </a>
-
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <i class="fa-solid fa-envelope"></i>
                 </div>
+
+                <h3>Email</h3>
+
+                <p>
+                    School email address<br>
+                    <strong>Coming Soon</strong>
+                </p>
+            </div>
+
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <i class="fa-solid fa-camera"></i>
+                </div>
+
+                <h3>Sports Gallery</h3>
+
+                <p>
+                    Sports pictures, videos,
+                    competitions and school events.
+                </p>
             </div>
 
         </section>
 
-        <section class="message-box">
-            <h3>About This Gallery</h3>
+        <!-- SOCIAL MEDIA -->
+        <section class="social-section">
+
+            <h2>🌐 Follow Us</h2>
 
             <p>
-                If you have school sports photographs, videos or information
-                about an event that should be featured in the gallery, you can
-                contact the school through the appropriate school channels.
+                Follow the Silveira High Sports Gallery on social media
+                for the latest sports activities and school memories.
             </p>
+
+            <div class="social-links">
+
+                <!-- Replace # with the real Facebook account link -->
+                <a href="#" class="social-link facebook" target="_blank">
+                    <i class="fa-brands fa-facebook"></i>
+                    Facebook
+                </a>
+
+                <!-- Replace # with the real Instagram account link -->
+                <a href="#" class="social-link instagram" target="_blank">
+                    <i class="fa-brands fa-instagram"></i>
+                    Instagram
+                </a>
+
+                <!-- Replace # with the real YouTube account link -->
+                <a href="#" class="social-link youtube" target="_blank">
+                    <i class="fa-brands fa-youtube"></i>
+                    YouTube
+                </a>
+
+                <!-- Replace # with the real TikTok account link -->
+                <a href="#" class="social-link tiktok" target="_blank">
+                    <i class="fa-brands fa-tiktok"></i>
+                    TikTok
+                </a>
+
+            </div>
+
         </section>
 
-        <div class="back-button">
-            <a href="index.html">← Back to Home</a>
-        </div>
+        <!-- MESSAGE -->
+        <section class="message-box">
+
+            <h2>🏆 Be Part of the Gallery</h2>
+
+            <p>
+                The Silveira High Sports Gallery is a place to celebrate
+                sporting talent, teamwork, competitions and memorable school
+                activities. More pictures, videos and social media updates
+                will be added as the gallery grows.
+            </p>
+
+            <a href="index.html" class="home-button">
+                ← Back to Home
+            </a>
+
+        </section>
 
     </main>
 
+    <!-- FOOTER -->
     <footer>
-        <p>© 2026 Silveira High Sports Gallery</p>
-        <p>Silveira High School</p>
+        <p>
+            &copy; 2026 <span>Silveira High Sports Gallery</span>
+        </p>
+
+        <p>
+            Celebrating Sports • Talent • Teamwork • Memories
+        </p>
     </footer>
 
 </body>
