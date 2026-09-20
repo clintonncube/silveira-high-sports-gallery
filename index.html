@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
     <title>Silveira High Sports Gallery</title>
 
-    <!-- Font Awesome -->
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
     <style>
+
         * {
             margin: 0;
             padding: 0;
@@ -27,32 +31,30 @@
             color: #222;
         }
 
-        /* ================= HEADER ================= */
+        /* HEADER */
 
         header {
             background: linear-gradient(135deg, #5c0d24, #8b1638);
             color: white;
-            padding: 22px 20px;
             text-align: center;
+            padding: 24px 15px;
         }
 
         header h1 {
             font-size: 32px;
-            margin-bottom: 6px;
+            margin-bottom: 7px;
         }
 
         header p {
-            font-size: 15px;
             opacity: 0.9;
         }
 
-        /* ================= NAVIGATION ================= */
+        /* NAVIGATION */
 
         nav {
             background: #111;
             display: flex;
             justify-content: center;
-            align-items: center;
             flex-wrap: wrap;
             position: sticky;
             top: 0;
@@ -62,7 +64,7 @@
         nav a {
             color: white;
             text-decoration: none;
-            padding: 16px 20px;
+            padding: 15px 20px;
             font-weight: bold;
             transition: 0.3s;
         }
@@ -71,20 +73,27 @@
             background: #8b1638;
         }
 
-        /* ================= HERO ================= */
+        /* HERO */
 
         .hero {
             min-height: 570px;
+
             background:
-                linear-gradient(rgba(40, 0, 15, 0.65), rgba(40, 0, 15, 0.7)),
-                url("images/sports.jpg") center/cover no-repeat;
+                linear-gradient(
+                    rgba(40,0,15,0.68),
+                    rgba(40,0,15,0.72)
+                ),
+                url("images/sports.jpg")
+                center/cover no-repeat;
 
             display: flex;
-            align-items: center;
             justify-content: center;
+            align-items: center;
+
             text-align: center;
-            padding: 40px 20px;
             color: white;
+
+            padding: 40px 20px;
         }
 
         .hero-content {
@@ -103,7 +112,7 @@
             margin-bottom: 30px;
         }
 
-        .hero-buttons {
+        .buttons {
             display: flex;
             justify-content: center;
             gap: 15px;
@@ -112,38 +121,42 @@
 
         .btn {
             display: inline-block;
-            text-decoration: none;
-            padding: 14px 24px;
+            padding: 14px 25px;
             border-radius: 30px;
+            text-decoration: none;
             font-weight: bold;
             transition: 0.3s;
         }
 
-        .btn-primary {
+        .btn:hover {
+            transform: translateY(-4px);
+        }
+
+        .btn-white {
             background: white;
             color: #5c0d24;
         }
 
-        .btn-secondary {
+        .btn-maroon {
             background: #8b1638;
             color: white;
             border: 2px solid white;
         }
 
-        .btn:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-        }
-
-        /* ================= GENERAL ================= */
+        /* GENERAL */
 
         section {
             padding: 70px 20px;
         }
 
+        .container {
+            max-width: 1150px;
+            margin: auto;
+        }
+
         .section-title {
             text-align: center;
-            margin-bottom: 45px;
+            margin-bottom: 40px;
         }
 
         .section-title h2 {
@@ -154,17 +167,10 @@
 
         .section-title p {
             color: #666;
-            max-width: 700px;
-            margin: auto;
             line-height: 1.6;
         }
 
-        .container {
-            max-width: 1150px;
-            margin: auto;
-        }
-
-        /* ================= FEATURED SPORTS ================= */
+        /* SPORTS */
 
         .sports-grid {
             display: grid;
@@ -174,39 +180,108 @@
 
         .sport-card {
             background: white;
-            border-radius: 15px;
-            padding: 35px 20px;
+            border-radius: 16px;
+            padding: 30px 20px;
             text-align: center;
             box-shadow: 0 5px 18px rgba(0,0,0,0.1);
             transition: 0.3s;
         }
 
         .sport-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 25px rgba(0,0,0,0.16);
+            transform: translateY(-7px);
         }
 
         .sport-card i {
-            font-size: 45px;
+            font-size: 42px;
             color: #8b1638;
-            margin-bottom: 18px;
+            margin-bottom: 15px;
         }
 
         .sport-card h3 {
             color: #5c0d24;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         .sport-card p {
-            color: #666;
-            line-height: 1.5;
+            color: #777;
+            font-size: 14px;
         }
 
-        /* ================= QUICK ACCESS ================= */
+        /* LATEST MEDIA */
+
+        .media-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .media-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+
+        .media-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .media-card img {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .media-card video {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+            background: black;
+            display: block;
+        }
+
+        .media-info {
+            padding: 16px;
+        }
+
+        .media-info h3 {
+            color: #5c0d24;
+            margin-bottom: 7px;
+        }
+
+        .media-info p {
+            color: #777;
+            font-size: 14px;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #777;
+            grid-column: 1 / -1;
+        }
+
+        .loading i {
+            color: #8b1638;
+            font-size: 35px;
+            margin-bottom: 10px;
+        }
+
+        .empty {
+            text-align: center;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            color: #777;
+            grid-column: 1 / -1;
+        }
+
+        /* QUICK ACCESS */
 
         .quick-section {
             background: #111;
-            color: white;
         }
 
         .quick-section .section-title h2 {
@@ -214,7 +289,7 @@
         }
 
         .quick-section .section-title p {
-            color: #ccc;
+            color: #bbb;
         }
 
         .quick-grid {
@@ -225,8 +300,8 @@
 
         .quick-card {
             text-decoration: none;
-            color: white;
             background: #222;
+            color: white;
             padding: 30px 20px;
             text-align: center;
             border-radius: 15px;
@@ -248,64 +323,36 @@
         }
 
         .quick-card p {
-            color: #ccc;
+            color: #bbb;
             font-size: 14px;
         }
 
-        /* ================= LATEST CONTENT ================= */
+        /* TIKTOK */
 
-        .content-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 25px;
-        }
+        .tiktok {
+            background: linear-gradient(
+                135deg,
+                #5c0d24,
+                #8b1638
+            );
 
-        .content-card {
-            background: white;
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 5px 18px rgba(0,0,0,0.1);
-        }
-
-        .content-card i {
-            font-size: 42px;
-            color: #8b1638;
-            margin-bottom: 15px;
-        }
-
-        .content-card h3 {
-            color: #5c0d24;
-            margin-bottom: 12px;
-            font-size: 24px;
-        }
-
-        .content-card p {
-            color: #666;
-            line-height: 1.7;
-            margin-bottom: 20px;
-        }
-
-        /* ================= TIKTOK ================= */
-
-        .tiktok-section {
-            background: linear-gradient(135deg, #5c0d24, #8b1638);
             color: white;
             text-align: center;
         }
 
-        .tiktok-section h2 {
+        .tiktok h2 {
             font-size: 38px;
             margin-bottom: 15px;
         }
 
-        .tiktok-section p {
+        .tiktok p {
             max-width: 700px;
             margin: auto;
             line-height: 1.7;
             margin-bottom: 25px;
         }
 
-        .tiktok-btn {
+        .tiktok-button {
             display: inline-block;
             background: white;
             color: #111;
@@ -316,17 +363,13 @@
             transition: 0.3s;
         }
 
-        .tiktok-btn:hover {
+        .tiktok-button:hover {
             transform: scale(1.05);
         }
 
-        .tiktok-btn i {
-            margin-right: 8px;
-        }
+        /* ABOUT */
 
-        /* ================= ABOUT PREVIEW ================= */
-
-        .about-preview {
+        .about {
             background: white;
         }
 
@@ -337,13 +380,13 @@
         }
 
         .about-box p {
-            line-height: 1.8;
             color: #555;
+            line-height: 1.8;
             font-size: 17px;
             margin-bottom: 25px;
         }
 
-        /* ================= FOOTER ================= */
+        /* FOOTER */
 
         footer {
             background: #111;
@@ -352,15 +395,9 @@
             padding: 30px 20px;
         }
 
-        footer h3 {
-            color: #fff;
-            margin-bottom: 10px;
-        }
-
         footer p {
             color: #bbb;
-            font-size: 14px;
-            margin: 5px;
+            margin: 8px;
         }
 
         .social-icons {
@@ -378,9 +415,10 @@
             color: #8b1638;
         }
 
-        /* ================= ANIMATION ================= */
+        /* ANIMATION */
 
         @keyframes fadeUp {
+
             from {
                 opacity: 0;
                 transform: translateY(30px);
@@ -390,9 +428,10 @@
                 opacity: 1;
                 transform: translateY(0);
             }
+
         }
 
-        /* ================= MOBILE ================= */
+        /* MOBILE */
 
         @media (max-width: 900px) {
 
@@ -404,9 +443,14 @@
                 grid-template-columns: repeat(2, 1fr);
             }
 
-            .hero h2 {
-                font-size: 42px;
+            .media-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
+
+            .hero h2 {
+                font-size: 43px;
+            }
+
         }
 
         @media (max-width: 600px) {
@@ -416,7 +460,7 @@
             }
 
             nav a {
-                padding: 12px 10px;
+                padding: 12px 9px;
                 font-size: 14px;
             }
 
@@ -434,64 +478,97 @@
 
             .sports-grid,
             .quick-grid,
-            .content-grid {
+            .media-grid {
                 grid-template-columns: 1fr;
-            }
-
-            .section-title h2 {
-                font-size: 29px;
             }
 
             section {
                 padding: 50px 15px;
             }
+
         }
+
     </style>
+
 </head>
 
 <body>
 
-<!-- ================= HEADER ================= -->
+<!-- HEADER -->
 
 <header>
+
     <h1>Silveira High Sports Gallery</h1>
-    <p>Celebrating Sport, Talent, Teamwork and School Spirit</p>
+
+    <p>
+        Celebrating Sport, Talent, Teamwork and School Spirit
+    </p>
+
 </header>
 
-<!-- ================= NAVIGATION ================= -->
+<!-- NAVIGATION -->
 
 <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="pictures.html">Pictures</a>
-    <a href="videos.html">Videos</a>
-    <a href="contact.html">Contact</a>
+
+    <a href="index.html">
+        <i class="fa-solid fa-house"></i>
+        Home
+    </a>
+
+    <a href="about.html">
+        <i class="fa-solid fa-school"></i>
+        About
+    </a>
+
+    <a href="pictures.html">
+        <i class="fa-solid fa-images"></i>
+        Pictures
+    </a>
+
+    <a href="videos.html">
+        <i class="fa-solid fa-video"></i>
+        Videos
+    </a>
+
+    <a href="contact.html">
+        <i class="fa-solid fa-envelope"></i>
+        Contact
+    </a>
+
 </nav>
 
-<!-- ================= HERO ================= -->
+<!-- HERO -->
 
 <section class="hero">
 
     <div class="hero-content">
 
-        <h2>Welcome to the Sports Gallery</h2>
+        <h2>
+            Welcome to the Sports Gallery
+        </h2>
 
         <p>
-            Explore sports activities, competitions, school events,
-            memorable moments and the sporting talent of
-            Silveira High School.
+            Explore sports activities, competitions,
+            school events and memorable moments
+            from Silveira High School.
         </p>
 
-        <div class="hero-buttons">
+        <div class="buttons">
 
-            <a href="pictures.html" class="btn btn-primary">
+            <a href="pictures.html"
+               class="btn btn-white">
+
                 <i class="fa-solid fa-camera"></i>
                 View Pictures
+
             </a>
 
-            <a href="videos.html" class="btn btn-secondary">
+            <a href="videos.html"
+               class="btn btn-maroon">
+
                 <i class="fa-solid fa-video"></i>
                 Watch Videos
+
             </a>
 
         </div>
@@ -500,56 +577,73 @@
 
 </section>
 
-<!-- ================= FEATURED SPORTS ================= -->
+<!-- SPORTS -->
 
 <section>
 
     <div class="container">
 
         <div class="section-title">
-            <h2>Featured Sports</h2>
+
+            <h2>
+                Featured Sports
+            </h2>
+
             <p>
-                Discover the different sporting activities
-                represented at Silveira High School.
+                Explore the sporting activities
+                at Silveira High School.
             </p>
+
         </div>
 
         <div class="sports-grid">
 
             <div class="sport-card">
+
                 <i class="fa-solid fa-futbol"></i>
+
                 <h3>Football</h3>
+
                 <p>
-                    Follow football matches, training sessions
-                    and school competitions.
+                    Matches, training and competitions.
                 </p>
+
             </div>
 
             <div class="sport-card">
+
                 <i class="fa-solid fa-basketball"></i>
+
                 <h3>Basketball</h3>
+
                 <p>
-                    View basketball activities, matches
-                    and memorable moments.
+                    Games, training and events.
                 </p>
+
             </div>
 
             <div class="sport-card">
+
                 <i class="fa-solid fa-volleyball"></i>
+
                 <h3>Volleyball</h3>
+
                 <p>
-                    Explore volleyball games, training
-                    and school tournaments.
+                    Matches and school tournaments.
                 </p>
+
             </div>
 
             <div class="sport-card">
+
                 <i class="fa-solid fa-person-running"></i>
+
                 <h3>Athletics</h3>
+
                 <p>
-                    See athletics events, competitions
-                    and outstanding performances.
+                    Track and field activities.
                 </p>
+
             </div>
 
         </div>
@@ -558,44 +652,174 @@
 
 </section>
 
-<!-- ================= QUICK ACCESS ================= -->
+<!-- LATEST PICTURES -->
+
+<section>
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>
+                📸 Latest Pictures
+            </h2>
+
+            <p>
+                Recently uploaded pictures from our
+                sports activities.
+            </p>
+
+        </div>
+
+        <div id="latestPictures"
+             class="media-grid">
+
+            <div class="loading">
+
+                <i class="fa-solid fa-spinner fa-spin"></i>
+
+                <p>
+                    Loading latest pictures...
+                </p>
+
+            </div>
+
+        </div>
+
+        <div style="text-align:center; margin-top:30px;">
+
+            <a href="pictures.html"
+               class="btn btn-maroon">
+
+                View All Pictures
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- LATEST VIDEOS -->
+
+<section style="background:#fafafa;">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>
+                🎥 Latest Videos
+            </h2>
+
+            <p>
+                Recently uploaded videos from
+                Silveira High sports.
+            </p>
+
+        </div>
+
+        <div id="latestVideos"
+             class="media-grid">
+
+            <div class="loading">
+
+                <i class="fa-solid fa-spinner fa-spin"></i>
+
+                <p>
+                    Loading latest videos...
+                </p>
+
+            </div>
+
+        </div>
+
+        <div style="text-align:center; margin-top:30px;">
+
+            <a href="videos.html"
+               class="btn btn-maroon">
+
+                Watch All Videos
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- QUICK ACCESS -->
 
 <section class="quick-section">
 
     <div class="container">
 
         <div class="section-title">
-            <h2>Explore Our Gallery</h2>
+
+            <h2>
+                Explore Our Gallery
+            </h2>
+
             <p>
-                Quickly access the main sections of the
-                Silveira High Sports Gallery.
+                Quickly access everything on the website.
             </p>
+
         </div>
 
         <div class="quick-grid">
 
-            <a href="pictures.html" class="quick-card">
+            <a href="pictures.html"
+               class="quick-card">
+
                 <i class="fa-solid fa-images"></i>
+
                 <h3>Pictures</h3>
-                <p>Browse sports photographs.</p>
+
+                <p>
+                    Browse sports photographs.
+                </p>
+
             </a>
 
-            <a href="videos.html" class="quick-card">
+            <a href="videos.html"
+               class="quick-card">
+
                 <i class="fa-solid fa-film"></i>
+
                 <h3>Videos</h3>
-                <p>Watch sports videos and highlights.</p>
+
+                <p>
+                    Watch sports videos.
+                </p>
+
             </a>
 
-            <a href="about.html" class="quick-card">
+            <a href="about.html"
+               class="quick-card">
+
                 <i class="fa-solid fa-school"></i>
+
                 <h3>About</h3>
-                <p>Learn more about our sports gallery.</p>
+
+                <p>
+                    Learn about the gallery.
+                </p>
+
             </a>
 
-            <a href="contact.html" class="quick-card">
+            <a href="contact.html"
+               class="quick-card">
+
                 <i class="fa-solid fa-envelope"></i>
+
                 <h3>Contact</h3>
-                <p>Get in touch with the sports gallery.</p>
+
+                <p>
+                    Get in touch with us.
+                </p>
+
             </a>
 
         </div>
@@ -604,87 +828,36 @@
 
 </section>
 
-<!-- ================= LATEST CONTENT ================= -->
+<!-- TIKTOK -->
 
-<section>
-
-    <div class="container">
-
-        <div class="section-title">
-            <h2>Latest From The Gallery</h2>
-            <p>
-                Keep checking back for new sports pictures,
-                videos and school activities.
-            </p>
-        </div>
-
-        <div class="content-grid">
-
-            <div class="content-card">
-
-                <i class="fa-solid fa-camera-retro"></i>
-
-                <h3>Latest Pictures</h3>
-
-                <p>
-                    New photographs from football, athletics,
-                    volleyball, basketball and other school
-                    sporting activities will be added here.
-                </p>
-
-                <a href="pictures.html" class="btn btn-secondary">
-                    View Pictures
-                </a>
-
-            </div>
-
-            <div class="content-card">
-
-                <i class="fa-solid fa-video"></i>
-
-                <h3>Latest Videos</h3>
-
-                <p>
-                    Watch videos from matches, competitions,
-                    training sessions and special school
-                    sports events.
-                </p>
-
-                <a href="videos.html" class="btn btn-secondary">
-                    Watch Videos
-                </a>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- ================= TIKTOK ================= -->
-
-<section class="tiktok-section">
+<section class="tiktok">
 
     <div class="container">
 
         <h2>
+
             <i class="fa-brands fa-tiktok"></i>
+
             Follow Us on TikTok
+
         </h2>
 
         <p>
-            Follow <strong>@silveirahighsportsdesk</strong>
-            for more sports moments, activities and updates
-            from Silveira High School.
+
+            Follow
+            <strong>@silveirahighsportsdesk</strong>
+            for more sports moments, activities
+            and updates.
+
         </p>
 
         <a
             href="https://www.tiktok.com/@silveirahighsportsdesk"
             target="_blank"
-            class="tiktok-btn">
+            class="tiktok-button">
 
             <i class="fa-brands fa-tiktok"></i>
+
             Visit Our TikTok
 
         </a>
@@ -693,28 +866,35 @@
 
 </section>
 
-<!-- ================= ABOUT PREVIEW ================= -->
+<!-- ABOUT -->
 
-<section class="about-preview">
+<section class="about">
 
     <div class="container">
 
         <div class="about-box">
 
             <div class="section-title">
-                <h2>About Silveira High Sports Gallery</h2>
+
+                <h2>
+                    About Silveira High Sports Gallery
+                </h2>
+
             </div>
 
             <p>
                 The Silveira High Sports Gallery is a digital
                 collection celebrating the sporting life of
-                Silveira High School. The website brings together
+                Silveira High School. It brings together
                 pictures, videos, competitions and memorable
                 school sports activities in one place.
             </p>
 
-            <a href="about.html" class="btn btn-secondary">
-                Learn More About Us
+            <a href="about.html"
+               class="btn btn-maroon">
+
+                Learn More
+
             </a>
 
         </div>
@@ -723,11 +903,15 @@
 
 </section>
 
-<!-- ================= FOOTER ================= -->
+<!-- FOOTER -->
 
 <footer>
 
-    <h3>Silveira High Sports Gallery</h3>
+    <p>
+        <strong>
+            Silveira High Sports Gallery
+        </strong>
+    </p>
 
     <p>
         Celebrating Sport • Talent • Teamwork • School Spirit
@@ -735,16 +919,25 @@
 
     <div class="social-icons">
 
-        <a href="#" aria-label="Facebook">
+        <a href="#"
+           aria-label="Facebook">
+
             <i class="fa-brands fa-facebook"></i>
+
         </a>
 
-        <a href="#" aria-label="Instagram">
+        <a href="#"
+           aria-label="Instagram">
+
             <i class="fa-brands fa-instagram"></i>
+
         </a>
 
-        <a href="#" aria-label="YouTube">
+        <a href="#"
+           aria-label="YouTube">
+
             <i class="fa-brands fa-youtube"></i>
+
         </a>
 
         <a
@@ -759,10 +952,366 @@
     </div>
 
     <p>
-        © 2026 Silveira High Sports Gallery. All rights reserved.
+        © 2026 Silveira High Sports Gallery
     </p>
 
 </footer>
 
+
+<script>
+
+/* =========================================
+   GITHUB SETTINGS
+========================================= */
+
+const username = "clintonncube";
+
+const repository =
+    "silveira-high-sports-gallery";
+
+const branch = "main";
+
+
+/* =========================================
+   SPORTS FOLDERS
+========================================= */
+
+const sports = [
+
+    "football",
+    "basketball",
+    "volleyball",
+    "tennis",
+    "netball",
+    "korfball",
+    "handball",
+    "athletics",
+    "other"
+
+];
+
+
+/* =========================================
+   GET FILES FROM GITHUB
+========================================= */
+
+async function getFiles(type, sport) {
+
+    const url =
+        `https://api.github.com/repos/${username}/${repository}/contents/${type}/${sport}?ref=${branch}`;
+
+    try {
+
+        const response =
+            await fetch(url);
+
+        if (!response.ok) {
+            return [];
+        }
+
+        const files =
+            await response.json();
+
+        return files;
+
+    }
+
+    catch (error) {
+
+        return [];
+
+    }
+
+}
+
+
+/* =========================================
+   LOAD LATEST PICTURES
+========================================= */
+
+async function loadLatestPictures() {
+
+    const container =
+        document.getElementById("latestPictures");
+
+    let allImages = [];
+
+
+    for (const sport of sports) {
+
+        const files =
+            await getFiles("images", sport);
+
+
+        const images =
+            files.filter(file => {
+
+                const name =
+                    file.name.toLowerCase();
+
+                return (
+
+                    name.endsWith(".jpg") ||
+                    name.endsWith(".jpeg") ||
+                    name.endsWith(".png") ||
+                    name.endsWith(".gif") ||
+                    name.endsWith(".webp")
+
+                );
+
+            });
+
+
+        images.forEach(file => {
+
+            allImages.push({
+
+                name: file.name,
+                url: file.download_url,
+                sport: sport
+
+            });
+
+        });
+
+    }
+
+
+    /* Show newest items first */
+
+    allImages.reverse();
+
+
+    /* Limit to 6 */
+
+    allImages =
+        allImages.slice(0, 6);
+
+
+    if (allImages.length === 0) {
+
+        container.innerHTML = `
+
+            <div class="empty">
+
+                <i class="fa-solid fa-images"
+                   style="font-size:45px;color:#8b1638;">
+                </i>
+
+                <h3>
+                    No Pictures Yet
+                </h3>
+
+                <p>
+                    New pictures will appear here
+                    after they are uploaded.
+                </p>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    container.innerHTML = "";
+
+
+    allImages.forEach(image => {
+
+        const card =
+            document.createElement("div");
+
+        card.className =
+            "media-card";
+
+
+        card.innerHTML = `
+
+            <img
+                src="${image.url}"
+                alt="Silveira High sports picture"
+                loading="lazy">
+
+            <div class="media-info">
+
+                <h3>
+                    ${capitalize(image.sport)}
+                </h3>
+
+                <p>
+                    ${image.name}
+                </p>
+
+            </div>
+
+        `;
+
+
+        container.appendChild(card);
+
+    });
+
+}
+
+
+/* =========================================
+   LOAD LATEST VIDEOS
+========================================= */
+
+async function loadLatestVideos() {
+
+    const container =
+        document.getElementById("latestVideos");
+
+    let allVideos = [];
+
+
+    for (const sport of sports) {
+
+        const files =
+            await getFiles("videos", sport);
+
+
+        const videos =
+            files.filter(file => {
+
+                const name =
+                    file.name.toLowerCase();
+
+                return (
+
+                    name.endsWith(".mp4") ||
+                    name.endsWith(".webm") ||
+                    name.endsWith(".ogg")
+
+                );
+
+            });
+
+
+        videos.forEach(file => {
+
+            allVideos.push({
+
+                name: file.name,
+                url: file.download_url,
+                sport: sport
+
+            });
+
+        });
+
+    }
+
+
+    allVideos.reverse();
+
+
+    allVideos =
+        allVideos.slice(0, 6);
+
+
+    if (allVideos.length === 0) {
+
+        container.innerHTML = `
+
+            <div class="empty">
+
+                <i class="fa-solid fa-video"
+                   style="font-size:45px;color:#8b1638;">
+                </i>
+
+                <h3>
+                    No Videos Yet
+                </h3>
+
+                <p>
+                    New videos will appear here
+                    after they are uploaded.
+                </p>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    container.innerHTML = "";
+
+
+    allVideos.forEach(video => {
+
+        const card =
+            document.createElement("div");
+
+        card.className =
+            "media-card";
+
+
+        card.innerHTML = `
+
+            <video
+                controls
+                preload="metadata">
+
+                <source
+                    src="${video.url}">
+
+                Your browser does not support
+                video playback.
+
+            </video>
+
+            <div class="media-info">
+
+                <h3>
+                    ${capitalize(video.sport)}
+                </h3>
+
+                <p>
+                    ${video.name}
+                </p>
+
+            </div>
+
+        `;
+
+
+        container.appendChild(card);
+
+    });
+
+}
+
+
+/* =========================================
+   CAPITALIZE SPORT NAME
+========================================= */
+
+function capitalize(text) {
+
+    return text.charAt(0).toUpperCase()
+        + text.slice(1);
+
+}
+
+
+/* =========================================
+   START
+========================================= */
+
+loadLatestPictures();
+
+loadLatestVideos();
+
+</script>
+
 </body>
+
 </html>
