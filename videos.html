@@ -4,42 +4,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Sports Videos | Silveira High Sports Gallery</title>
+    <title>Videos | Silveira High Sports Gallery</title>
 
+    <!-- Font Awesome -->
     <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- TikTok Embed -->
+    <script async src="https://www.tiktok.com/embed.js"></script>
 
     <style>
+
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
-            font-family: Arial, sans-serif;
-            background: #f4f4f4;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f5f5;
             color: #222;
         }
+
+        /* HEADER */
 
         header {
             background: linear-gradient(135deg, #5c0d24, #8b1638);
             color: white;
             text-align: center;
-            padding: 35px 20px;
+            padding: 25px 15px;
         }
 
         header h1 {
-            font-size: 2.2rem;
-            margin-bottom: 10px;
+            font-size: 32px;
+            margin-bottom: 8px;
         }
+
+        header p {
+            font-size: 15px;
+            opacity: 0.9;
+        }
+
+        /* NAVIGATION */
 
         nav {
             background: #111;
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            padding: 12px;
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -48,529 +65,859 @@
         nav a {
             color: white;
             text-decoration: none;
-            padding: 10px 18px;
-            margin: 3px;
-            border-radius: 5px;
+            padding: 15px 20px;
+            font-weight: bold;
             transition: 0.3s;
         }
 
-        nav a:hover {
+        nav a:hover,
+        nav a.active {
             background: #8b1638;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 300px;
+
+            background:
+                linear-gradient(
+                    rgba(50,0,20,0.65),
+                    rgba(50,0,20,0.65)
+                ),
+                url("images/sports.jpg")
+                center/cover no-repeat;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+            color: white;
+
+            padding: 30px;
+        }
+
+        .hero h2 {
+            font-size: 45px;
+            margin-bottom: 12px;
+        }
+
+        .hero p {
+            font-size: 18px;
+        }
+
+        /* GENERAL */
+
+        section {
+            padding: 60px 20px;
         }
 
         .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 40px auto;
+            max-width: 1150px;
+            margin: auto;
         }
 
-        .page-title {
+        .section-title {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
         }
 
-        .page-title h2 {
+        .section-title h2 {
             color: #5c0d24;
-            font-size: 2rem;
+            font-size: 35px;
             margin-bottom: 10px;
         }
 
-        .page-title p {
+        .section-title p {
             color: #666;
         }
 
-        .folders {
+        /* SPORTS */
+
+        .sports-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 25px;
         }
 
-        .folder {
+        .sport-card {
             background: white;
-            border-radius: 15px;
+            border-radius: 18px;
             padding: 35px 20px;
             text-align: center;
-            box-shadow: 0 5px 18px rgba(0,0,0,0.12);
-            cursor: pointer;
+
+            box-shadow: 0 5px 18px rgba(0,0,0,0.1);
+
             transition: 0.3s;
-        }
-
-        .folder:hover {
-            transform: translateY(-7px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.18);
-        }
-
-        .folder i {
-            font-size: 55px;
-            color: #8b1638;
-            margin-bottom: 20px;
-        }
-
-        .folder h3 {
-            color: #5c0d24;
-            margin-bottom: 8px;
-        }
-
-        .folder p {
-            color: #777;
-        }
-
-        #videoSection {
-            display: none;
-        }
-
-        .back-button {
-            display: inline-block;
-            background: #5c0d24;
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 7px;
             cursor: pointer;
-            margin-bottom: 25px;
-            font-size: 15px;
         }
 
-        .back-button:hover {
-            background: #8b1638;
+        .sport-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.17);
         }
 
-        #folderTitle {
+        .sport-card i {
+            font-size: 48px;
+            color: #8b1638;
+            margin-bottom: 18px;
+        }
+
+        .sport-card h3 {
             color: #5c0d24;
-            margin-bottom: 25px;
-            text-align: center;
+            margin-bottom: 10px;
+            font-size: 23px;
         }
+
+        .sport-card p {
+            color: #777;
+            font-size: 14px;
+        }
+
+        /* VIDEOS */
 
         .video-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: 25px;
         }
 
         .video-card {
             background: white;
-            border-radius: 12px;
+            border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.12);
+
+            box-shadow: 0 5px 18px rgba(0,0,0,0.12);
+
+            transition: 0.3s;
+        }
+
+        .video-card:hover {
+            transform: translateY(-5px);
         }
 
         .video-card video {
             width: 100%;
             display: block;
-            background: black;
+            background: #000;
         }
 
-        .video-card h3 {
-            padding: 15px;
+        .video-info {
+            padding: 18px;
+        }
+
+        .video-info h3 {
             color: #5c0d24;
-            font-size: 16px;
+            margin-bottom: 8px;
         }
 
-        .message {
+        .video-info p {
+            color: #777;
+            font-size: 14px;
+        }
+
+        /* EMPTY */
+
+        .empty {
             text-align: center;
-            padding: 30px;
-            color: #666;
-            font-size: 17px;
+            padding: 50px 20px;
+
+            background: white;
+            border-radius: 15px;
+
+            color: #777;
+
+            grid-column: 1 / -1;
         }
 
-        /* TIKTOK SECTION */
-
-        .tiktok-section {
-            margin-top: 60px;
-            background: linear-gradient(135deg, #111, #333);
-            color: white;
-            text-align: center;
-            padding: 45px 20px;
-            border-radius: 18px;
-        }
-
-        .tiktok-section .tiktok-icon {
-            font-size: 55px;
+        .empty i {
+            font-size: 50px;
+            color: #8b1638;
             margin-bottom: 15px;
         }
 
-        .tiktok-section h2 {
-            margin-bottom: 10px;
+        /* LOADING */
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+
+            grid-column: 1 / -1;
         }
 
-        .tiktok-section h3 {
-            margin: 15px 0;
-            font-size: 22px;
+        .loading i {
+            font-size: 35px;
+            color: #8b1638;
+        }
+
+        /* BACK BUTTON */
+
+        .back-btn {
+            display: inline-block;
+
+            margin-bottom: 25px;
+
+            background: #5c0d24;
+            color: white;
+
+            padding: 12px 20px;
+
+            border-radius: 25px;
+
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .back-btn:hover {
+            background: #8b1638;
+        }
+
+        /* TIKTOK */
+
+        .tiktok-section {
+            background: #111;
+            color: white;
+            text-align: center;
+        }
+
+        .tiktok-section h2 {
+            font-size: 35px;
+            margin-bottom: 15px;
         }
 
         .tiktok-section p {
-            margin-bottom: 25px;
-            color: #ddd;
+            color: #ccc;
+            max-width: 700px;
+            margin: auto;
+            line-height: 1.7;
+            margin-bottom: 30px;
         }
 
-        .tiktok-profile {
-            margin: 30px auto 0;
+        .tiktok-box {
             max-width: 720px;
             min-width: 288px;
-            display: flex;
-            justify-content: center;
+            margin: 0 auto 30px;
+            background: white;
+            border-radius: 12px;
+            padding: 10px;
         }
 
         .tiktok-button {
             display: inline-block;
+
             background: white;
             color: #111;
-            text-decoration: none;
-            padding: 13px 24px;
+
+            padding: 14px 25px;
+
             border-radius: 30px;
+
+            text-decoration: none;
             font-weight: bold;
+
             transition: 0.3s;
         }
 
         .tiktok-button:hover {
-            transform: scale(1.05);
-            background: #eee;
+            transform: translateY(-4px);
         }
+
+        .tiktok-button i {
+            margin-right: 8px;
+        }
+
+        /* FOOTER */
 
         footer {
             background: #111;
             color: white;
             text-align: center;
-            padding: 25px 15px;
-            margin-top: 50px;
+            padding: 30px 20px;
         }
 
         footer p {
-            margin: 5px;
+            color: #bbb;
+            margin: 8px;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 900px) {
+
+            .sports-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
         }
 
         @media (max-width: 600px) {
 
             header h1 {
-                font-size: 1.7rem;
+                font-size: 25px;
             }
 
             nav a {
-                padding: 8px 10px;
+                padding: 12px 9px;
                 font-size: 14px;
             }
 
-            .container {
-                width: 94%;
+            .hero h2 {
+                font-size: 34px;
             }
 
-            .folder {
-                padding: 30px 15px;
+            .sports-grid,
+            .video-grid {
+                grid-template-columns: 1fr;
             }
+
+            section {
+                padding: 45px 15px;
+            }
+
         }
+
     </style>
+
 </head>
 
 <body>
 
+<!-- HEADER -->
+
 <header>
+
     <h1>Silveira High Sports Gallery</h1>
-    <p>Sports Videos & School Activities</p>
+
+    <p>
+        Sports Videos & Highlights
+    </p>
+
 </header>
 
+<!-- NAVIGATION -->
+
 <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="pictures.html">Pictures</a>
-    <a href="videos.html">Videos</a>
-    <a href="contact.html">Contact</a>
+
+    <a href="index.html">
+        <i class="fa-solid fa-house"></i>
+        Home
+    </a>
+
+    <a href="about.html">
+        <i class="fa-solid fa-school"></i>
+        About
+    </a>
+
+    <a href="pictures.html">
+        <i class="fa-solid fa-images"></i>
+        Pictures
+    </a>
+
+    <a href="videos.html" class="active">
+        <i class="fa-solid fa-video"></i>
+        Videos
+    </a>
+
+    <a href="contact.html">
+        <i class="fa-solid fa-envelope"></i>
+        Contact
+    </a>
+
 </nav>
 
-<div class="container">
+<!-- HERO -->
 
-    <!-- SPORTS FOLDERS -->
+<section class="hero">
 
-    <div id="folderSection">
+    <div>
 
-        <div class="page-title">
-            <h2>🎥 Sports Videos</h2>
-            <p>Select a sport to view its videos.</p>
-        </div>
+        <h2>Sports Videos</h2>
 
-        <div class="folders">
+        <p>
+            Watch memorable sporting moments from
+            Silveira High School.
+        </p>
 
-            <div class="folder"
-                 onclick="openFolder('football', 'Football Videos')">
-                <i class="fas fa-futbol"></i>
-                <h3>Football</h3>
-                <p>Football matches and activities</p>
-            </div>
+    </div>
 
-            <div class="folder"
-                 onclick="openFolder('basketball', 'Basketball Videos')">
-                <i class="fas fa-basketball"></i>
-                <h3>Basketball</h3>
-                <p>Basketball matches and activities</p>
-            </div>
+</section>
 
-            <div class="folder"
-                 onclick="openFolder('volleyball', 'Volleyball Videos')">
-                <i class="fas fa-volleyball"></i>
-                <h3>Volleyball</h3>
-                <p>Volleyball matches and activities</p>
-            </div>
+<!-- SPORTS -->
 
-            <div class="folder"
-                 onclick="openFolder('tennis', 'Tennis Videos')">
-                <i class="fas fa-table-tennis-paddle-ball"></i>
-                <h3>Tennis</h3>
-                <p>Tennis matches and activities</p>
-            </div>
+<section>
 
-            <div class="folder"
-                 onclick="openFolder('netball', 'Netball Videos')">
-                <i class="fas fa-volleyball"></i>
-                <h3>Netball</h3>
-                <p>Netball matches and activities</p>
-            </div>
+    <div class="container">
 
-            <div class="folder"
-                 onclick="openFolder('korfball', 'Korfball Videos')">
-                <i class="fas fa-basketball"></i>
-                <h3>Korfball</h3>
-                <p>Korfball matches and activities</p>
-            </div>
+        <div class="section-title">
 
-            <div class="folder"
-                 onclick="openFolder('handball', 'Handball Videos')">
-                <i class="fas fa-hand"></i>
-                <h3>Handball</h3>
-                <p>Handball matches and activities</p>
-            </div>
-
-            <div class="folder"
-                 onclick="openFolder('athletics', 'Athletics Videos')">
-                <i class="fas fa-person-running"></i>
-                <h3>Athletics</h3>
-                <p>Running, jumping and athletics events</p>
-            </div>
-
-            <div class="folder"
-                 onclick="openFolder('other', 'Other Sports Videos')">
-                <i class="fas fa-video"></i>
-                <h3>Other</h3>
-                <p>Other school sports videos</p>
-            </div>
-
-        </div>
-
-
-        <!-- TIKTOK -->
-
-        <div class="tiktok-section">
-
-            <div class="tiktok-icon">
-                <i class="fab fa-tiktok"></i>
-            </div>
-
-            <h2>Follow Us on TikTok</h2>
-
-            <h3>@silveirahighsportsdesk</h3>
+            <h2>Choose a Sport</h2>
 
             <p>
-                Follow Silveira High Sports Desk for
-                school sports activities, highlights and videos.
+                Select a category to watch its videos.
             </p>
 
-            <!-- OFFICIAL TIKTOK CREATOR PROFILE EMBED -->
+        </div>
 
-            <div class="tiktok-profile">
+        <div class="sports-grid">
 
-                <blockquote
-                    class="tiktok-embed"
-                    cite="https://www.tiktok.com/@silveirahighsportsdesk"
-                    data-unique-id="silveirahighsportsdesk"
-                    data-embed-type="creator"
-                    style="max-width: 720px; min-width: 288px;">
+            <div class="sport-card"
+                 onclick="openFolder('football','Football')">
 
-                    <section>
-                        <a
-                            target="_blank"
-                            href="https://www.tiktok.com/@silveirahighsportsdesk?refer=creator_embed">
-                            @silveirahighsportsdesk
-                        </a>
-                    </section>
+                <i class="fa-solid fa-futbol"></i>
 
-                </blockquote>
+                <h3>Football</h3>
+
+                <p>
+                    Football matches and activities
+                </p>
 
             </div>
 
-            <a
-                href="https://www.tiktok.com/@silveirahighsportsdesk"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="tiktok-button">
+            <div class="sport-card"
+                 onclick="openFolder('basketball','Basketball')">
 
-                <i class="fab fa-tiktok"></i>
-                Visit Our TikTok
+                <i class="fa-solid fa-basketball"></i>
 
-            </a>
+                <h3>Basketball</h3>
+
+                <p>
+                    Basketball games and activities
+                </p>
+
+            </div>
+
+            <div class="sport-card"
+                 onclick="openFolder('volleyball','Volleyball')">
+
+                <i class="fa-solid fa-volleyball"></i>
+
+                <h3>Volleyball</h3>
+
+                <p>
+                    Volleyball matches and events
+                </p>
+
+            </div>
+
+            <div class="sport-card"
+                 onclick="openFolder('tennis','Tennis')">
+
+                <i class="fa-solid fa-table-tennis-paddle-ball"></i>
+
+                <h3>Tennis</h3>
+
+                <p>
+                    Tennis activities and competitions
+                </p>
+
+            </div>
+
+            <div class="sport-card"
+                 onclick="openFolder('netball','Netball')">
+
+                <i class="fa-solid fa-circle-dot"></i>
+
+                <h3>Netball</h3>
+
+                <p>
+                    Netball matches and events
+                </p>
+
+            </div>
+
+            <div class="sport-card"
+                 onclick="openFolder('korfball','Korfball')">
+
+                <i class="fa-solid fa-basketball"></i>
+
+                <h3>Korfball</h3>
+
+                <p>
+                    Korfball activities
+                </p>
+
+            </div>
+
+            <div class="sport-card"
+                 onclick="openFolder('handball','Handball')">
+
+                <i class="fa-solid fa-hand"></i>
+
+                <h3>Handball</h3>
+
+                <p>
+                    Handball matches and activities
+                </p>
+
+            </div>
+
+            <div class="sport-card"
+                 onclick="openFolder('athletics','Athletics')">
+
+                <i class="fa-solid fa-person-running"></i>
+
+                <h3>Athletics</h3>
+
+                <p>
+                    Track and field activities
+                </p>
+
+            </div>
+
+            <div class="sport-card"
+                 onclick="openFolder('other','Other')">
+
+                <i class="fa-solid fa-star"></i>
+
+                <h3>Other</h3>
+
+                <p>
+                    Other school activities
+                </p>
+
+            </div>
 
         </div>
 
     </div>
 
+</section>
 
-    <!-- VIDEO SECTION -->
+<!-- VIDEO SECTION -->
 
-    <div id="videoSection">
+<section id="videoSection" style="display:none;">
 
-        <button
-            class="back-button"
-            onclick="backToFolders()">
+    <div class="container">
 
-            ← Back to Sports
+        <a href="#"
+           class="back-btn"
+           onclick="goBack(); return false;">
 
-        </button>
+            <i class="fa-solid fa-arrow-left"></i>
 
-        <h2 id="folderTitle"></h2>
+            Back to Sports
 
-        <div
-            id="videoGrid"
-            class="video-grid">
+        </a>
+
+        <div class="section-title">
+
+            <h2 id="videoTitle">
+                Videos
+            </h2>
+
+            <p>
+                Watch the videos below.
+            </p>
+
+        </div>
+
+        <div id="videoGallery"
+             class="video-grid">
+
         </div>
 
     </div>
 
-</div>
+</section>
 
+<!-- TIKTOK -->
+
+<section class="tiktok-section">
+
+    <div class="container">
+
+        <h2>
+
+            <i class="fa-brands fa-tiktok"></i>
+
+            Follow Us on TikTok
+
+        </h2>
+
+        <p>
+
+            Follow
+            <strong>@silveirahighsportsdesk</strong>
+            for more sports moments, school activities
+            and updates.
+
+        </p>
+
+        <div class="tiktok-box">
+
+            <blockquote
+                class="tiktok-embed"
+                cite="https://www.tiktok.com/@silveirahighsportsdesk"
+                data-unique-id="silveirahighsportsdesk"
+                data-embed-type="creator"
+                style="max-width:720px; min-width:288px;">
+
+                <section>
+
+                    <a
+                        target="_blank"
+                        href="https://www.tiktok.com/@silveirahighsportsdesk?refer=creator_embed">
+
+                        @silveirahighsportsdesk
+
+                    </a>
+
+                </section>
+
+            </blockquote>
+
+        </div>
+
+        <a
+            href="https://www.tiktok.com/@silveirahighsportsdesk"
+            target="_blank"
+            class="tiktok-button">
+
+            <i class="fa-brands fa-tiktok"></i>
+
+            Visit Our TikTok
+
+        </a>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
 
 <footer>
 
-    <p>© 2026 Silveira High Sports Gallery</p>
+    <p>
+        <strong>Silveira High Sports Gallery</strong>
+    </p>
 
     <p>
-        Sports • School Activities • Teamwork • Achievement
+        Celebrating Sport • Talent • Teamwork • School Spirit
+    </p>
+
+    <p>
+        © 2026 Silveira High Sports Gallery
     </p>
 
 </footer>
 
-
-<!-- TIKTOK EMBED SCRIPT -->
-
-<script
-    async
-    src="https://www.tiktok.com/embed.js">
-</script>
-
-
 <script>
 
-    function openFolder(folder, title) {
+const username = "clintonncube";
 
-        document.getElementById("folderSection").style.display = "none";
+const repository =
+    "silveira-high-sports-gallery";
 
-        document.getElementById("videoSection").style.display = "block";
+const branch = "main";
 
-        document.getElementById("folderTitle").textContent = title;
 
-        const grid = document.getElementById("videoGrid");
+async function openFolder(folder, title) {
 
-        grid.innerHTML =
-            '<div class="message">Loading videos...</div>';
+    const section =
+        document.getElementById("videoSection");
 
-        const apiUrl =
-            `https://api.github.com/repos/clintonncube/silveira-high-sports-gallery/contents/videos/${folder}?ref=main`;
+    const gallery =
+        document.getElementById("videoGallery");
 
-        fetch(apiUrl)
+    const titleElement =
+        document.getElementById("videoTitle");
 
-            .then(response => {
 
-                if (!response.ok) {
-                    throw new Error("Folder could not be loaded.");
-                }
+    titleElement.textContent =
+        title + " Videos";
 
-                return response.json();
 
-            })
+    gallery.innerHTML = `
 
-            .then(files => {
+        <div class="loading">
 
-                grid.innerHTML = "";
+            <i class="fa-solid fa-spinner fa-spin"></i>
 
-                const videos = files.filter(file => {
+            <p>
+                Loading videos...
+            </p>
 
-                    const name =
-                        file.name.toLowerCase();
+        </div>
 
-                    return (
-                        name.endsWith(".mp4") ||
-                        name.endsWith(".webm") ||
-                        name.endsWith(".ogg")
-                    );
+    `;
 
-                });
 
-                if (videos.length === 0) {
+    section.style.display = "block";
 
-                    grid.innerHTML =
-                        '<div class="message">' +
-                        'No videos have been added to this folder yet.' +
-                        '</div>';
 
-                    return;
-                }
+    section.scrollIntoView({
+        behavior: "smooth"
+    });
 
-                videos.forEach(file => {
 
-                    const card =
-                        document.createElement("div");
+    try {
 
-                    card.className = "video-card";
+        const url =
+            `https://api.github.com/repos/${username}/${repository}/contents/videos/${folder}?ref=${branch}`;
 
-                    card.innerHTML = `
 
-                        <video
-                            controls
-                            preload="metadata">
+        const response =
+            await fetch(url);
 
-                            <source
-                                src="${file.download_url}"
-                                type="video/mp4">
 
-                            Your browser does not support
-                            video playback.
+        if (!response.ok) {
 
-                        </video>
+            throw new Error(
+                "Folder not found"
+            );
 
-                        <h3>${file.name}</h3>
+        }
 
-                    `;
 
-                    grid.appendChild(card);
+        const files =
+            await response.json();
 
-                });
 
-            })
+        const videos =
+            files.filter(file => {
 
-            .catch(error => {
+                const name =
+                    file.name.toLowerCase();
 
-                grid.innerHTML = `
 
-                    <div class="message">
+                return (
 
-                        Unable to load videos right now.
+                    name.endsWith(".mp4") ||
 
-                    </div>
+                    name.endsWith(".webm") ||
 
-                `;
+                    name.endsWith(".ogg")
 
-                console.error(error);
+                );
 
             });
 
+
+        if (videos.length === 0) {
+
+            gallery.innerHTML = `
+
+                <div class="empty">
+
+                    <i class="fa-solid fa-video"></i>
+
+                    <h3>
+                        No Videos Yet
+                    </h3>
+
+                    <p>
+
+                        Videos for ${title}
+                        will appear here
+                        when they are uploaded.
+
+                    </p>
+
+                </div>
+
+            `;
+
+            return;
+
+        }
+
+
+        gallery.innerHTML = "";
+
+
+        videos.forEach(file => {
+
+            const card =
+                document.createElement("div");
+
+
+            card.className =
+                "video-card";
+
+
+            card.innerHTML = `
+
+                <video
+                    controls
+                    preload="metadata">
+
+                    <source
+                        src="${file.download_url}"
+                        type="video/mp4">
+
+                    Your browser does not support
+                    video playback.
+
+                </video>
+
+                <div class="video-info">
+
+                    <h3>
+                        ${title}
+                    </h3>
+
+                    <p>
+                        ${file.name}
+                    </p>
+
+                </div>
+
+            `;
+
+
+            gallery.appendChild(card);
+
+        });
+
     }
 
+    catch (error) {
 
-    function backToFolders() {
+        gallery.innerHTML = `
 
-        document.getElementById("videoSection").style.display = "none";
+            <div class="empty">
 
-        document.getElementById("folderSection").style.display = "block";
+                <i class="fa-solid fa-circle-exclamation"></i>
 
-        document.getElementById("videoGrid").innerHTML = "";
+                <h3>
+                    Unable to Load Videos
+                </h3>
+
+                <p>
+
+                    Make sure the
+                    ${folder}
+                    folder exists inside
+                    the videos folder.
+
+                </p>
+
+            </div>
+
+        `;
 
     }
+
+}
+
+
+function goBack() {
+
+    document.getElementById("videoSection")
+        .style.display = "none";
+
+
+    window.scrollTo({
+
+        top: 0,
+
+        behavior: "smooth"
+
+    });
+
+}
 
 </script>
 
