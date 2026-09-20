@@ -18,24 +18,20 @@
 
         body {
             font-family: Arial, sans-serif;
-            background: #f5f5f5;
+            background: #f4f4f4;
             color: #222;
         }
 
         header {
             background: linear-gradient(135deg, #5c0d24, #8b1638);
             color: white;
-            padding: 25px 20px;
             text-align: center;
+            padding: 35px 20px;
         }
 
         header h1 {
-            font-size: 30px;
-            margin-bottom: 8px;
-        }
-
-        header p {
-            font-size: 15px;
+            font-size: 2.2rem;
+            margin-bottom: 10px;
         }
 
         nav {
@@ -43,7 +39,7 @@
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 5px;
+            padding: 12px;
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -52,7 +48,9 @@
         nav a {
             color: white;
             text-decoration: none;
-            padding: 15px 18px;
+            padding: 10px 18px;
+            margin: 3px;
+            border-radius: 5px;
             transition: 0.3s;
         }
 
@@ -61,29 +59,29 @@
         }
 
         .container {
-            width: 92%;
-            max-width: 1100px;
+            width: 90%;
+            max-width: 1200px;
             margin: 40px auto;
         }
 
-        .intro {
+        .page-title {
             text-align: center;
-            margin-bottom: 35px;
+            margin-bottom: 30px;
         }
 
-        .intro h2 {
+        .page-title h2 {
             color: #5c0d24;
-            font-size: 30px;
+            font-size: 2rem;
             margin-bottom: 10px;
         }
 
-        .intro p {
+        .page-title p {
             color: #666;
         }
 
-        /* FOLDER GRID */
+        /* FOLDERS */
 
-        .folder-grid {
+        .folders {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 25px;
@@ -92,62 +90,48 @@
         .folder {
             background: white;
             border-radius: 15px;
-            padding: 30px 20px;
+            padding: 35px 20px;
             text-align: center;
-            cursor: pointer;
             box-shadow: 0 5px 18px rgba(0,0,0,0.12);
+            cursor: pointer;
             transition: 0.3s;
-            border-top: 6px solid #8b1638;
         }
 
         .folder:hover {
-            transform: translateY(-8px);
+            transform: translateY(-7px);
             box-shadow: 0 10px 25px rgba(0,0,0,0.18);
         }
 
-        .folder-icon {
+        .folder i {
             font-size: 55px;
-            color: #d49a00;
-            margin-bottom: 18px;
+            color: #8b1638;
+            margin-bottom: 20px;
         }
 
         .folder h3 {
             color: #5c0d24;
             margin-bottom: 8px;
-            font-size: 21px;
         }
 
         .folder p {
             color: #777;
-            font-size: 14px;
         }
 
-        /* GALLERY */
+        /* PHOTO SECTION */
 
-        #gallerySection {
+        #photoSection {
             display: none;
         }
 
-        .gallery-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 15px;
-            margin-bottom: 25px;
-            flex-wrap: wrap;
-        }
-
-        .gallery-header h2 {
-            color: #5c0d24;
-        }
-
         .back-button {
+            display: inline-block;
             background: #5c0d24;
             color: white;
             border: none;
-            padding: 11px 18px;
-            border-radius: 8px;
+            padding: 12px 20px;
+            border-radius: 7px;
             cursor: pointer;
+            margin-bottom: 25px;
             font-size: 15px;
         }
 
@@ -155,22 +139,30 @@
             background: #8b1638;
         }
 
+        #folderTitle {
+            color: #5c0d24;
+            margin-bottom: 25px;
+            text-align: center;
+            font-size: 2rem;
+        }
+
         .photo-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 25px;
         }
 
         .photo-card {
             background: white;
-            border-radius: 15px;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 5px 18px rgba(0,0,0,0.12);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.12);
             transition: 0.3s;
         }
 
         .photo-card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.18);
         }
 
         .photo-card img {
@@ -178,29 +170,62 @@
             height: 230px;
             object-fit: cover;
             display: block;
+            cursor: pointer;
+            background: #ddd;
         }
 
-        .photo-name {
+        .photo-card h3 {
             padding: 15px;
-            text-align: center;
-            font-weight: bold;
             color: #5c0d24;
+            font-size: 16px;
+            word-break: break-word;
         }
 
         .message {
             text-align: center;
-            padding: 40px 20px;
-            color: #777;
-            background: white;
-            border-radius: 12px;
+            padding: 30px;
+            color: #666;
+            font-size: 17px;
         }
 
-        .loading {
-            text-align: center;
-            padding: 30px;
-            color: #5c0d24;
+        /* IMAGE POPUP */
+
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 5000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.92);
+            justify-content: center;
+            align-items: center;
+            padding: 25px;
+        }
+
+        .lightbox img {
+            max-width: 95%;
+            max-height: 90%;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .close-lightbox {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            cursor: pointer;
             font-weight: bold;
         }
+
+        .close-lightbox:hover {
+            color: #ddd;
+        }
+
+        /* FOOTER */
 
         footer {
             background: #111;
@@ -214,23 +239,33 @@
             margin: 5px;
         }
 
+        /* MOBILE */
+
         @media (max-width: 600px) {
 
             header h1 {
-                font-size: 24px;
+                font-size: 1.7rem;
             }
 
             nav a {
-                padding: 12px 10px;
+                padding: 8px 10px;
                 font-size: 14px;
             }
 
-            .intro h2 {
-                font-size: 25px;
+            .container {
+                width: 94%;
+            }
+
+            .folder {
+                padding: 30px 15px;
             }
 
             .photo-card img {
-                height: 200px;
+                height: 210px;
+            }
+
+            #folderTitle {
+                font-size: 1.6rem;
             }
         }
     </style>
@@ -240,8 +275,9 @@
 
 <header>
     <h1>Silveira High Sports Gallery</h1>
-    <p>Celebrating Sports, Talent and School Spirit</p>
+    <p>Sports Pictures & School Activities</p>
 </header>
+
 
 <nav>
     <a href="index.html">Home</a>
@@ -251,215 +287,440 @@
     <a href="contact.html">Contact</a>
 </nav>
 
+
 <div class="container">
 
-    <!-- FOLDERS -->
+    <!-- FOLDER SECTION -->
 
-    <section id="categories">
+    <div id="folderSection">
 
-        <div class="intro">
+        <div class="page-title">
+
             <h2>📸 Sports Pictures</h2>
-            <p>Choose a sports folder to view its pictures.</p>
+
+            <p>
+                Select a sport to view its pictures.
+            </p>
+
         </div>
 
-        <div class="folder-grid">
 
-            <div class="folder" onclick="openFolder('football', '⚽ Football')">
-                <div class="folder-icon">
-                    <i class="fa-solid fa-futbol"></i>
-                </div>
+        <div class="folders">
+
+            <!-- FOOTBALL -->
+
+            <div class="folder"
+                 onclick="openFolder('football', 'Football Pictures')">
+
+                <i class="fas fa-futbol"></i>
+
                 <h3>Football</h3>
-                <p>Football matches and activities</p>
+
+                <p>
+                    Football matches and activities
+                </p>
+
             </div>
 
-            <div class="folder" onclick="openFolder('athletics', '🏃 Athletics')">
-                <div class="folder-icon">
-                    <i class="fa-solid fa-person-running"></i>
-                </div>
-                <h3>Athletics</h3>
-                <p>Athletics competitions and training</p>
-            </div>
 
-            <div class="folder" onclick="openFolder('volleyball', '🏐 Volleyball')">
-                <div class="folder-icon">
-                    <i class="fa-solid fa-volleyball"></i>
-                </div>
-                <h3>Volleyball</h3>
-                <p>Volleyball matches and activities</p>
-            </div>
+            <!-- BASKETBALL -->
 
-            <div class="folder" onclick="openFolder('basketball', '🏀 Basketball')">
-                <div class="folder-icon">
-                    <i class="fa-solid fa-basketball"></i>
-                </div>
+            <div class="folder"
+                 onclick="openFolder('basketball', 'Basketball Pictures')">
+
+                <i class="fas fa-basketball"></i>
+
                 <h3>Basketball</h3>
-                <p>Basketball matches and activities</p>
+
+                <p>
+                    Basketball matches and activities
+                </p>
+
             </div>
 
-            <div class="folder" onclick="openFolder('sports-day', '🏆 Sports Day')">
-                <div class="folder-icon">
-                    <i class="fa-solid fa-trophy"></i>
-                </div>
-                <h3>Sports Day</h3>
-                <p>Sports Day memories and events</p>
+
+            <!-- VOLLEYBALL -->
+
+            <div class="folder"
+                 onclick="openFolder('volleyball', 'Volleyball Pictures')">
+
+                <i class="fas fa-volleyball"></i>
+
+                <h3>Volleyball</h3>
+
+                <p>
+                    Volleyball matches and activities
+                </p>
+
             </div>
 
-            <div class="folder" onclick="openFolder('other', '📷 Other Sports')">
-                <div class="folder-icon">
-                    <i class="fa-solid fa-images"></i>
-                </div>
+
+            <!-- TENNIS -->
+
+            <div class="folder"
+                 onclick="openFolder('tennis', 'Tennis Pictures')">
+
+                <i class="fas fa-table-tennis-paddle-ball"></i>
+
+                <h3>Tennis</h3>
+
+                <p>
+                    Tennis matches and activities
+                </p>
+
+            </div>
+
+
+            <!-- NETBALL -->
+
+            <div class="folder"
+                 onclick="openFolder('netball', 'Netball Pictures')">
+
+                <i class="fas fa-volleyball"></i>
+
+                <h3>Netball</h3>
+
+                <p>
+                    Netball matches and activities
+                </p>
+
+            </div>
+
+
+            <!-- KORFBALL -->
+
+            <div class="folder"
+                 onclick="openFolder('korfball', 'Korfball Pictures')">
+
+                <i class="fas fa-basketball"></i>
+
+                <h3>Korfball</h3>
+
+                <p>
+                    Korfball matches and activities
+                </p>
+
+            </div>
+
+
+            <!-- HANDBALL -->
+
+            <div class="folder"
+                 onclick="openFolder('handball', 'Handball Pictures')">
+
+                <i class="fas fa-hand"></i>
+
+                <h3>Handball</h3>
+
+                <p>
+                    Handball matches and activities
+                </p>
+
+            </div>
+
+
+            <!-- ATHLETICS -->
+
+            <div class="folder"
+                 onclick="openFolder('athletics', 'Athletics Pictures')">
+
+                <i class="fas fa-person-running"></i>
+
+                <h3>Athletics</h3>
+
+                <p>
+                    Running, jumping and athletics events
+                </p>
+
+            </div>
+
+
+            <!-- OTHER -->
+
+            <div class="folder"
+                 onclick="openFolder('other', 'Other Sports Pictures')">
+
+                <i class="fas fa-images"></i>
+
                 <h3>Other</h3>
-                <p>Other school sports activities</p>
+
+                <p>
+                    Other school sports pictures
+                </p>
+
             </div>
 
         </div>
 
-    </section>
+    </div>
 
 
-    <!-- SELECTED FOLDER -->
+    <!-- PHOTO SECTION -->
 
-    <section id="gallerySection">
+    <div id="photoSection">
 
-        <div class="gallery-header">
+        <button
+            class="back-button"
+            onclick="backToFolders()">
 
-            <h2 id="folderTitle">Pictures</h2>
+            ← Back to Sports
 
-            <button class="back-button" onclick="showCategories()">
-                ← Back to Folders
-            </button>
+        </button>
 
+
+        <h2 id="folderTitle"></h2>
+
+
+        <div
+            id="photoGrid"
+            class="photo-grid">
         </div>
 
-        <div id="gallery" class="photo-grid">
-            <div class="loading">
-                Loading pictures...
-            </div>
-        </div>
+    </div>
 
-    </section>
+</div>
+
+
+<!-- IMAGE LIGHTBOX -->
+
+<div
+    id="lightbox"
+    class="lightbox"
+    onclick="closeLightbox()">
+
+    <span
+        class="close-lightbox"
+        onclick="closeLightbox()">
+
+        ×
+
+    </span>
+
+
+    <img
+        id="lightboxImage"
+        src=""
+        alt="Sports Picture">
 
 </div>
 
 
 <footer>
-    <p><strong>Silveira High Sports Gallery</strong></p>
-    <p>Celebrating our school, our athletes and our achievements.</p>
-    <p>© 2026 Silveira High School</p>
+
+    <p>
+        © 2026 Silveira High Sports Gallery
+    </p>
+
+    <p>
+        Sports • School Activities • Teamwork • Achievement
+    </p>
+
 </footer>
 
 
 <script>
 
-    const username = "clintonncube";
-    const repository = "silveira-high-sports-gallery";
-    const branch = "main";
+    function openFolder(folder, title) {
 
-    async function openFolder(folder, title) {
+        document.getElementById("folderSection").style.display = "none";
 
-        document.getElementById("categories").style.display = "none";
-        document.getElementById("gallerySection").style.display = "block";
+        document.getElementById("photoSection").style.display = "block";
 
         document.getElementById("folderTitle").textContent = title;
 
-        const gallery = document.getElementById("gallery");
+        const grid =
+            document.getElementById("photoGrid");
 
-        gallery.innerHTML = `
-            <div class="loading">
-                <i class="fa-solid fa-spinner fa-spin"></i>
-                Loading pictures...
-            </div>
-        `;
+        grid.innerHTML =
+            '<div class="message">Loading pictures...</div>';
+
 
         const apiUrl =
-            `https://api.github.com/repos/${username}/${repository}/contents/images/${folder}?ref=${branch}`;
+            `https://api.github.com/repos/clintonncube/silveira-high-sports-gallery/contents/images/${folder}?ref=main`;
 
-        try {
 
-            const response = await fetch(apiUrl);
+        fetch(apiUrl)
 
-            if (!response.ok) {
-                throw new Error("Folder could not be found.");
-            }
+            .then(response => {
 
-            const files = await response.json();
+                if (!response.ok) {
 
-            const imageFiles = files.filter(file => {
+                    throw new Error(
+                        "Folder could not be loaded."
+                    );
 
-                const name = file.name.toLowerCase();
+                }
 
-                return name.endsWith(".jpg") ||
-                       name.endsWith(".jpeg") ||
-                       name.endsWith(".png") ||
-                       name.endsWith(".gif") ||
-                       name.endsWith(".webp");
+                return response.json();
 
-            });
+            })
 
-            if (imageFiles.length === 0) {
 
-                gallery.innerHTML = `
+            .then(files => {
+
+                grid.innerHTML = "";
+
+
+                const images =
+                    files.filter(file => {
+
+                        const name =
+                            file.name.toLowerCase();
+
+                        return (
+
+                            name.endsWith(".jpg") ||
+
+                            name.endsWith(".jpeg") ||
+
+                            name.endsWith(".png") ||
+
+                            name.endsWith(".gif") ||
+
+                            name.endsWith(".webp")
+
+                        );
+
+                    });
+
+
+                if (images.length === 0) {
+
+                    grid.innerHTML =
+                        '<div class="message">' +
+                        'No pictures have been added to this folder yet.' +
+                        '</div>';
+
+                    return;
+
+                }
+
+
+                images.forEach(file => {
+
+                    const card =
+                        document.createElement("div");
+
+                    card.className =
+                        "photo-card";
+
+
+                    const image =
+                        document.createElement("img");
+
+                    image.src =
+                        file.download_url;
+
+                    image.alt =
+                        file.name;
+
+                    image.loading =
+                        "lazy";
+
+
+                    image.onclick = function() {
+
+                        openLightbox(
+                            file.download_url
+                        );
+
+                    };
+
+
+                    const title =
+                        document.createElement("h3");
+
+                    title.textContent =
+                        file.name;
+
+
+                    card.appendChild(image);
+
+                    card.appendChild(title);
+
+                    grid.appendChild(card);
+
+                });
+
+            })
+
+
+            .catch(error => {
+
+                grid.innerHTML = `
+
                     <div class="message">
-                        <h3>📷 No Pictures Yet</h3>
-                        <p>Add pictures to this folder on GitHub.</p>
+
+                        Unable to load pictures right now.
+
+                        <br><br>
+
+                        Please try again later.
+
                     </div>
+
                 `;
 
-                return;
-            }
-
-            gallery.innerHTML = "";
-
-            imageFiles.forEach(file => {
-
-                const card = document.createElement("div");
-
-                card.className = "photo-card";
-
-                card.innerHTML = `
-                    <img
-                        src="${file.download_url}"
-                        alt="${file.name}"
-                        loading="lazy"
-                    >
-
-                    <div class="photo-name">
-                        ${file.name}
-                    </div>
-                `;
-
-                gallery.appendChild(card);
+                console.error(error);
 
             });
 
-        } catch (error) {
+    }
 
-            gallery.innerHTML = `
-                <div class="message">
-                    <h3>⚠️ Unable to Load Pictures</h3>
-                    <p>
-                        Make sure the folder exists and contains pictures.
-                    </p>
-                </div>
-            `;
+
+    function backToFolders() {
+
+        document.getElementById("photoSection").style.display = "none";
+
+        document.getElementById("folderSection").style.display = "block";
+
+        document.getElementById("photoGrid").innerHTML = "";
+
+    }
+
+
+    function openLightbox(imageUrl) {
+
+        const lightbox =
+            document.getElementById("lightbox");
+
+        const image =
+            document.getElementById("lightboxImage");
+
+
+        image.src =
+            imageUrl;
+
+
+        lightbox.style.display =
+            "flex";
+
+    }
+
+
+    function closeLightbox() {
+
+        document.getElementById("lightbox").style.display =
+            "none";
+
+        document.getElementById("lightboxImage").src =
+            "";
+
+    }
+
+
+    document.addEventListener(
+        "keydown",
+        function(event) {
+
+            if (event.key === "Escape") {
+
+                closeLightbox();
+
+            }
 
         }
-
-    }
-
-
-    function showCategories() {
-
-        document.getElementById("gallerySection").style.display = "none";
-
-        document.getElementById("categories").style.display = "block";
-
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-
-    }
+    );
 
 </script>
 
