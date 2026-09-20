@@ -4,51 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Videos | Silveira High Sports Gallery</title>
+    <title>Sports Videos | Silveira High Sports Gallery</title>
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <style>
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
         }
 
         body {
-            font-family: Arial, Helvetica, sans-serif;
+            font-family: Arial, sans-serif;
             background: #f5f5f5;
             color: #222;
         }
 
-        /* HEADER */
-
         header {
             background: linear-gradient(135deg, #5c0d24, #8b1638);
             color: white;
-            text-align: center;
             padding: 25px 20px;
+            text-align: center;
         }
 
         header h1 {
-            font-size: 34px;
-            margin-bottom: 6px;
+            font-size: 30px;
+            margin-bottom: 8px;
         }
 
         header p {
-            opacity: 0.9;
+            font-size: 15px;
         }
-
-        /* NAVIGATION */
 
         nav {
             background: #111;
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            padding: 10px;
+            gap: 5px;
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -57,42 +52,110 @@
         nav a {
             color: white;
             text-decoration: none;
-            padding: 12px 18px;
-            margin: 3px;
-            border-radius: 6px;
-            font-weight: bold;
+            padding: 15px 18px;
             transition: 0.3s;
         }
 
         nav a:hover {
-            background: #7b1230;
-            transform: translateY(-2px);
+            background: #8b1638;
         }
 
-        /* INTRO */
+        .container {
+            width: 92%;
+            max-width: 1100px;
+            margin: 40px auto;
+        }
 
         .intro {
             text-align: center;
-            padding: 60px 20px 35px;
+            margin-bottom: 35px;
         }
 
         .intro h2 {
-            color: #7b1230;
-            font-size: 38px;
+            color: #5c0d24;
+            font-size: 30px;
             margin-bottom: 10px;
         }
 
         .intro p {
             color: #666;
-            font-size: 17px;
         }
 
-        /* VIDEO GRID */
+        /* FOLDERS */
+
+        .folder-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        .folder {
+            background: white;
+            border-radius: 15px;
+            padding: 30px 20px;
+            text-align: center;
+            cursor: pointer;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.12);
+            transition: 0.3s;
+            border-top: 6px solid #8b1638;
+        }
+
+        .folder:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.18);
+        }
+
+        .folder-icon {
+            font-size: 55px;
+            color: #d49a00;
+            margin-bottom: 18px;
+        }
+
+        .folder h3 {
+            color: #5c0d24;
+            margin-bottom: 8px;
+            font-size: 21px;
+        }
+
+        .folder p {
+            color: #777;
+            font-size: 14px;
+        }
+
+        /* VIDEO SECTION */
+
+        #videoSection {
+            display: none;
+        }
+
+        .video-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+
+        .video-header h2 {
+            color: #5c0d24;
+        }
+
+        .back-button {
+            background: #5c0d24;
+            color: white;
+            border: none;
+            padding: 11px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        .back-button:hover {
+            background: #8b1638;
+        }
 
         .video-grid {
-            max-width: 1200px;
-            margin: auto;
-            padding: 20px;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 25px;
@@ -102,144 +165,71 @@
             background: white;
             border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 6px 18px rgba(0,0,0,0.09);
-            transition: 0.35s;
-        }
-
-        .video-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 14px 28px rgba(0,0,0,0.16);
-        }
-
-        .video-wrapper {
-            width: 100%;
-            background: #111;
-        }
-
-        .video-wrapper video {
-            width: 100%;
-            height: 230px;
-            display: block;
-            object-fit: cover;
-        }
-
-        .video-info {
-            padding: 20px;
-        }
-
-        .video-info h3 {
-            color: #7b1230;
-            font-size: 21px;
-            margin-bottom: 7px;
-        }
-
-        .video-info p {
-            color: #666;
-            font-size: 15px;
-        }
-
-        /* FEATURE SECTION */
-
-        .feature {
-            max-width: 1000px;
-            margin: 45px auto;
-            padding: 35px 25px;
-            background: linear-gradient(135deg, #7b1230, #222);
-            color: white;
-            text-align: center;
-            border-radius: 15px;
-        }
-
-        .feature h2 {
-            margin-bottom: 10px;
-            font-size: 30px;
-        }
-
-        .feature p {
-            opacity: 0.9;
-        }
-
-        /* NOTICE */
-
-        .notice {
-            max-width: 900px;
-            margin: 40px auto;
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-        }
-
-        .notice h3 {
-            color: #7b1230;
-            margin-bottom: 10px;
-        }
-
-        .notice p {
-            color: #666;
-        }
-
-        /* BUTTON */
-
-        .button-area {
-            text-align: center;
-            margin: 40px 0 60px;
-        }
-
-        .button {
-            display: inline-block;
-            background: #7b1230;
-            color: white;
-            text-decoration: none;
-            padding: 14px 28px;
-            border-radius: 7px;
-            font-weight: bold;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.12);
             transition: 0.3s;
         }
 
-        .button:hover {
-            background: #5c0d24;
-            transform: translateY(-3px);
+        .video-card:hover {
+            transform: translateY(-5px);
         }
 
-        /* FOOTER */
+        .video-card video {
+            width: 100%;
+            display: block;
+            background: #000;
+        }
+
+        .video-name {
+            padding: 15px;
+            text-align: center;
+            font-weight: bold;
+            color: #5c0d24;
+        }
+
+        .message {
+            text-align: center;
+            padding: 40px 20px;
+            color: #777;
+            background: white;
+            border-radius: 12px;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 30px;
+            color: #5c0d24;
+            font-weight: bold;
+        }
 
         footer {
             background: #111;
             color: white;
             text-align: center;
-            padding: 30px 20px;
-        }
-
-        footer h3 {
-            margin-bottom: 8px;
+            padding: 25px 15px;
+            margin-top: 50px;
         }
 
         footer p {
-            color: #bbb;
             margin: 5px;
         }
-
-        /* MOBILE */
 
         @media (max-width: 600px) {
 
             header h1 {
-                font-size: 25px;
-            }
-
-            .intro h2 {
-                font-size: 29px;
-            }
-
-            .video-wrapper video {
-                height: 220px;
+                font-size: 24px;
             }
 
             nav a {
-                padding: 9px 11px;
+                padding: 12px 10px;
                 font-size: 14px;
+            }
+
+            .intro h2 {
+                font-size: 25px;
+            }
+
+            .video-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -247,120 +237,78 @@
 
 <body>
 
-    <!-- HEADER -->
+<header>
+    <h1>Silveira High Sports Gallery</h1>
+    <p>Celebrating Sports, Talent and School Spirit</p>
+</header>
 
-    <header>
+<nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="pictures.html">Pictures</a>
+    <a href="videos.html">Videos</a>
+    <a href="contact.html">Contact</a>
+</nav>
 
-        <h1>Silveira High Sports Gallery</h1>
+<div class="container">
 
-        <p>
-            Capturing the action, talent and memories of our school
-        </p>
+    <!-- VIDEO FOLDERS -->
 
-    </header>
+    <section id="categories">
 
-
-    <!-- NAVIGATION -->
-
-    <nav>
-
-        <a href="index.html">Home</a>
-
-        <a href="about.html">About</a>
-
-        <a href="pictures.html">Pictures</a>
-
-        <a href="videos.html">Videos</a>
-
-        <a href="contact.html">Contact</a>
-
-    </nav>
-
-
-    <!-- INTRO -->
-
-    <section class="intro">
-
-        <h2>🎥 Sports Videos</h2>
-
-        <p>
-            Watch memorable moments from sports and school activities.
-        </p>
-
-    </section>
-
-
-    <!-- VIDEO GRID -->
-
-    <section class="video-grid">
-
-        <div class="video-card">
-
-            <div class="video-wrapper">
-
-                <video controls>
-                    <source src="videos/sports1.mp4" type="video/mp4">
-                    Your browser does not support video playback.
-                </video>
-
-            </div>
-
-            <div class="video-info">
-
-                <h3>🏆 Sports Day</h3>
-
-                <p>
-                    Highlights from Sports Day activities at Silveira High School.
-                </p>
-
-            </div>
-
+        <div class="intro">
+            <h2>🎥 Sports Videos</h2>
+            <p>Choose a sports folder to watch its videos.</p>
         </div>
 
+        <div class="folder-grid">
 
-        <div class="video-card">
-
-            <div class="video-wrapper">
-
-                <video controls>
-                    <source src="videos/athletics.mp4" type="video/mp4">
-                    Your browser does not support video playback.
-                </video>
-
+            <div class="folder" onclick="openFolder('football', '⚽ Football')">
+                <div class="folder-icon">
+                    <i class="fa-solid fa-futbol"></i>
+                </div>
+                <h3>Football</h3>
+                <p>Football matches and activities</p>
             </div>
 
-            <div class="video-info">
-
-                <h3>🏃 Athletics</h3>
-
-                <p>
-                    Memorable moments from athletics activities and competitions.
-                </p>
-
+            <div class="folder" onclick="openFolder('athletics', '🏃 Athletics')">
+                <div class="folder-icon">
+                    <i class="fa-solid fa-person-running"></i>
+                </div>
+                <h3>Athletics</h3>
+                <p>Athletics competitions and training</p>
             </div>
 
-        </div>
-
-
-        <div class="video-card">
-
-            <div class="video-wrapper">
-
-                <video controls>
-                    <source src="videos/football.mp4" type="video/mp4">
-                    Your browser does not support video playback.
-                </video>
-
+            <div class="folder" onclick="openFolder('volleyball', '🏐 Volleyball')">
+                <div class="folder-icon">
+                    <i class="fa-solid fa-volleyball"></i>
+                </div>
+                <h3>Volleyball</h3>
+                <p>Volleyball matches and activities</p>
             </div>
 
-            <div class="video-info">
+            <div class="folder" onclick="openFolder('basketball', '🏀 Basketball')">
+                <div class="folder-icon">
+                    <i class="fa-solid fa-basketball"></i>
+                </div>
+                <h3>Basketball</h3>
+                <p>Basketball matches and activities</p>
+            </div>
 
-                <h3>⚽ Football</h3>
+            <div class="folder" onclick="openFolder('sports-day', '🏆 Sports Day')">
+                <div class="folder-icon">
+                    <i class="fa-solid fa-trophy"></i>
+                </div>
+                <h3>Sports Day</h3>
+                <p>Sports Day memories and events</p>
+            </div>
 
-                <p>
-                    Football activities and exciting school matches.
-                </p>
-
+            <div class="folder" onclick="openFolder('other', '📹 Other Sports')">
+                <div class="folder-icon">
+                    <i class="fa-solid fa-video"></i>
+                </div>
+                <h3>Other</h3>
+                <p>Other school sports activities</p>
             </div>
 
         </div>
@@ -368,56 +316,162 @@
     </section>
 
 
-    <!-- FEATURE -->
+    <!-- SELECTED VIDEO FOLDER -->
 
-    <section class="feature">
+    <section id="videoSection">
 
-        <h2>🏅 Every Moment Matters</h2>
+        <div class="video-header">
 
-        <p>
-            From training sessions to competitions, every sporting moment
-            becomes part of the memories of Silveira High School.
-        </p>
+            <h2 id="folderTitle">Videos</h2>
 
-    </section>
+            <button class="back-button" onclick="showCategories()">
+                ← Back to Folders
+            </button>
 
+        </div>
 
-    <!-- NOTICE -->
+        <div id="videoGallery" class="video-grid">
 
-    <section class="notice">
+            <div class="loading">
+                Loading videos...
+            </div>
 
-        <h3>🎬 More Videos Coming Soon</h3>
-
-        <p>
-            More sports videos and school activities can be added to the
-            gallery as they become available.
-        </p>
+        </div>
 
     </section>
 
-
-    <!-- BUTTON -->
-
-    <div class="button-area">
-
-        <a href="index.html" class="button">
-            ← Back to Home
-        </a>
-
-    </div>
+</div>
 
 
-    <!-- FOOTER -->
+<footer>
+    <p><strong>Silveira High Sports Gallery</strong></p>
+    <p>Celebrating our school, our athletes and our achievements.</p>
+    <p>© 2026 Silveira High School</p>
+</footer>
 
-    <footer>
 
-        <h3>Silveira High Sports Gallery</h3>
+<script>
 
-        <p>Silveira High School</p>
+    const username = "clintonncube";
+    const repository = "silveira-high-sports-gallery";
+    const branch = "main";
 
-        <p>© 2026 Silveira High Sports Gallery</p>
 
-    </footer>
+    async function openFolder(folder, title) {
+
+        document.getElementById("categories").style.display = "none";
+        document.getElementById("videoSection").style.display = "block";
+
+        document.getElementById("folderTitle").textContent = title;
+
+        const gallery = document.getElementById("videoGallery");
+
+        gallery.innerHTML = `
+            <div class="loading">
+                <i class="fa-solid fa-spinner fa-spin"></i>
+                Loading videos...
+            </div>
+        `;
+
+
+        const apiUrl =
+            `https://api.github.com/repos/${username}/${repository}/contents/videos/${folder}?ref=${branch}`;
+
+
+        try {
+
+            const response = await fetch(apiUrl);
+
+            if (!response.ok) {
+                throw new Error("Folder could not be found.");
+            }
+
+            const files = await response.json();
+
+
+            const videoFiles = files.filter(file => {
+
+                const name = file.name.toLowerCase();
+
+                return name.endsWith(".mp4") ||
+                       name.endsWith(".webm") ||
+                       name.endsWith(".ogg");
+
+            });
+
+
+            if (videoFiles.length === 0) {
+
+                gallery.innerHTML = `
+                    <div class="message">
+                        <h3>🎥 No Videos Yet</h3>
+                        <p>
+                            Add videos to this folder on GitHub.
+                        </p>
+                    </div>
+                `;
+
+                return;
+            }
+
+
+            gallery.innerHTML = "";
+
+
+            videoFiles.forEach(file => {
+
+                const card = document.createElement("div");
+
+                card.className = "video-card";
+
+
+                card.innerHTML = `
+                    <video controls preload="metadata">
+                        <source src="${file.download_url}">
+                        Your browser does not support this video.
+                    </video>
+
+                    <div class="video-name">
+                        ${file.name}
+                    </div>
+                `;
+
+
+                gallery.appendChild(card);
+
+            });
+
+
+        } catch (error) {
+
+            gallery.innerHTML = `
+                <div class="message">
+                    <h3>⚠️ Unable to Load Videos</h3>
+                    <p>
+                        Make sure the folder exists and contains videos.
+                    </p>
+                </div>
+            `;
+
+        }
+
+    }
+
+
+    function showCategories() {
+
+        document.getElementById("videoSection").style.display = "none";
+
+        document.getElementById("categories").style.display = "block";
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    }
+
+</script>
 
 </body>
 </html>
