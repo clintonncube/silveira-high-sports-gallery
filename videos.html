@@ -35,10 +35,6 @@
             margin-bottom: 10px;
         }
 
-        header p {
-            font-size: 1rem;
-        }
-
         nav {
             background: #111;
             display: flex;
@@ -84,6 +80,8 @@
             color: #666;
         }
 
+        /* SPORTS FOLDERS */
+
         .folders {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -119,6 +117,8 @@
         .folder p {
             color: #777;
         }
+
+        /* VIDEO SECTION */
 
         #videoSection {
             display: none;
@@ -178,6 +178,8 @@
             font-size: 17px;
         }
 
+        /* TIKTOK */
+
         .tiktok-section {
             margin-top: 60px;
             background: linear-gradient(135deg, #111, #333);
@@ -187,7 +189,7 @@
             border-radius: 18px;
         }
 
-        .tiktok-section i {
+        .tiktok-section .tiktok-icon {
             font-size: 55px;
             margin-bottom: 15px;
         }
@@ -222,6 +224,8 @@
             background: #eee;
         }
 
+        /* FOOTER */
+
         footer {
             background: #111;
             color: white;
@@ -235,6 +239,7 @@
         }
 
         @media (max-width: 600px) {
+
             header h1 {
                 font-size: 1.7rem;
             }
@@ -268,62 +273,152 @@
 
 <div class="container">
 
+    <!-- FOLDERS -->
+
     <div id="folderSection">
 
         <div class="page-title">
             <h2>🎥 Sports Videos</h2>
-            <p>Select a category to view the videos.</p>
+            <p>Select a sport to view its videos.</p>
         </div>
 
         <div class="folders">
 
+            <!-- FOOTBALL -->
+
             <div class="folder"
                  onclick="openFolder('football', 'Football Videos')">
+
                 <i class="fas fa-futbol"></i>
+
                 <h3>Football</h3>
+
                 <p>Football matches and activities</p>
+
             </div>
 
-            <div class="folder"
-                 onclick="openFolder('athletics', 'Athletics Videos')">
-                <i class="fas fa-person-running"></i>
-                <h3>Athletics</h3>
-                <p>Running, jumping and athletics events</p>
-            </div>
 
-            <div class="folder"
-                 onclick="openFolder('volleyball', 'Volleyball Videos')">
-                <i class="fas fa-volleyball"></i>
-                <h3>Volleyball</h3>
-                <p>Volleyball matches and activities</p>
-            </div>
+            <!-- BASKETBALL -->
 
             <div class="folder"
                  onclick="openFolder('basketball', 'Basketball Videos')">
+
                 <i class="fas fa-basketball"></i>
+
                 <h3>Basketball</h3>
+
                 <p>Basketball matches and activities</p>
+
             </div>
 
+
+            <!-- VOLLEYBALL -->
+
             <div class="folder"
-                 onclick="openFolder('sports-day', 'Sports Day Videos')">
-                <i class="fas fa-flag-checkered"></i>
-                <h3>Sports Day</h3>
-                <p>School sports day activities</p>
+                 onclick="openFolder('volleyball', 'Volleyball Videos')">
+
+                <i class="fas fa-volleyball"></i>
+
+                <h3>Volleyball</h3>
+
+                <p>Volleyball matches and activities</p>
+
             </div>
+
+
+            <!-- TENNIS -->
+
+            <div class="folder"
+                 onclick="openFolder('tennis', 'Tennis Videos')">
+
+                <i class="fas fa-table-tennis-paddle-ball"></i>
+
+                <h3>Tennis</h3>
+
+                <p>Tennis matches and activities</p>
+
+            </div>
+
+
+            <!-- NETBALL -->
+
+            <div class="folder"
+                 onclick="openFolder('netball', 'Netball Videos')">
+
+                <i class="fas fa-volleyball"></i>
+
+                <h3>Netball</h3>
+
+                <p>Netball matches and activities</p>
+
+            </div>
+
+
+            <!-- KORFBALL -->
+
+            <div class="folder"
+                 onclick="openFolder('korfball', 'Korfball Videos')">
+
+                <i class="fas fa-basketball"></i>
+
+                <h3>Korfball</h3>
+
+                <p>Korfball matches and activities</p>
+
+            </div>
+
+
+            <!-- HANDBALL -->
+
+            <div class="folder"
+                 onclick="openFolder('handball', 'Handball Videos')">
+
+                <i class="fas fa-hand"></i>
+
+                <h3>Handball</h3>
+
+                <p>Handball matches and activities</p>
+
+            </div>
+
+
+            <!-- ATHLETICS -->
+
+            <div class="folder"
+                 onclick="openFolder('athletics', 'Athletics Videos')">
+
+                <i class="fas fa-person-running"></i>
+
+                <h3>Athletics</h3>
+
+                <p>Running, jumping and athletics events</p>
+
+            </div>
+
+
+            <!-- OTHER -->
 
             <div class="folder"
                  onclick="openFolder('other', 'Other Sports Videos')">
+
                 <i class="fas fa-video"></i>
+
                 <h3>Other</h3>
+
                 <p>Other school sports videos</p>
+
             </div>
 
         </div>
 
+
+        <!-- TIKTOK -->
+
         <div class="tiktok-section">
 
-            <i class="fab fa-tiktok"></i>
+            <div class="tiktok-icon">
+                <i class="fab fa-tiktok"></i>
+            </div>
 
             <h2>Follow Us on TikTok</h2>
 
@@ -331,7 +426,7 @@
 
             <p>
                 Follow Silveira High Sports Desk on TikTok
-                for more school sports activities, highlights and videos.
+                for school sports activities, highlights and videos.
             </p>
 
             <a
@@ -350,10 +445,12 @@
     </div>
 
 
+    <!-- VIDEO DISPLAY -->
+
     <div id="videoSection">
 
         <button class="back-button" onclick="backToFolders()">
-            ← Back to Folders
+            ← Back to Sports
         </button>
 
         <h2 id="folderTitle"></h2>
@@ -366,8 +463,13 @@
 
 
 <footer>
+
     <p>© 2026 Silveira High Sports Gallery</p>
-    <p>Sports • School Activities • Teamwork • Achievement</p>
+
+    <p>
+        Sports • School Activities • Teamwork • Achievement
+    </p>
+
 </footer>
 
 
@@ -376,6 +478,7 @@
     function openFolder(folder, title) {
 
         document.getElementById("folderSection").style.display = "none";
+
         document.getElementById("videoSection").style.display = "block";
 
         document.getElementById("folderTitle").textContent = title;
@@ -385,24 +488,30 @@
         grid.innerHTML =
             '<div class="message">Loading videos...</div>';
 
+
         const apiUrl =
             `https://api.github.com/repos/clintonncube/silveira-high-sports-gallery/contents/videos/${folder}?ref=main`;
+
 
         fetch(apiUrl)
 
             .then(response => {
 
                 if (!response.ok) {
+
                     throw new Error("Folder could not be loaded.");
+
                 }
 
                 return response.json();
 
             })
 
+
             .then(files => {
 
                 grid.innerHTML = "";
+
 
                 const videos = files.filter(file => {
 
@@ -416,28 +525,43 @@
 
                 });
 
+
                 if (videos.length === 0) {
 
                     grid.innerHTML =
                         '<div class="message">No videos have been added to this folder yet.</div>';
 
                     return;
+
                 }
+
 
                 videos.forEach(file => {
 
-                    const card = document.createElement("div");
+                    const card =
+                        document.createElement("div");
 
                     card.className = "video-card";
 
+
                     card.innerHTML = `
-                        <video controls preload="metadata">
-                            <source src="${file.download_url}" type="video/mp4">
+
+                        <video
+                            controls
+                            preload="metadata">
+
+                            <source
+                                src="${file.download_url}"
+                                type="video/mp4">
+
                             Your browser does not support video playback.
+
                         </video>
 
                         <h3>${file.name}</h3>
+
                     `;
+
 
                     grid.appendChild(card);
 
@@ -445,12 +569,17 @@
 
             })
 
+
             .catch(error => {
 
                 grid.innerHTML = `
+
                     <div class="message">
+
                         Unable to load videos right now.
+
                     </div>
+
                 `;
 
                 console.error(error);
