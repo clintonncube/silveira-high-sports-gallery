@@ -6,38 +6,27 @@
 
     <title>Videos | Silveira High Sports Gallery</title>
 
-    <!-- Font Awesome -->
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-    <!-- TikTok Embed -->
-    <script async src="https://www.tiktok.com/embed.js"></script>
-
     <style>
-
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
         }
 
         body {
             font-family: Arial, Helvetica, sans-serif;
-            background: #f5f5f5;
+            background: #f4f4f4;
             color: #222;
         }
-
-        /* HEADER */
 
         header {
             background: linear-gradient(135deg, #5c0d24, #8b1638);
             color: white;
+            padding: 25px 20px;
             text-align: center;
-            padding: 25px 15px;
         }
 
         header h1 {
@@ -46,11 +35,8 @@
         }
 
         header p {
-            font-size: 15px;
-            opacity: 0.9;
+            font-size: 16px;
         }
-
-        /* NAVIGATION */
 
         nav {
             background: #111;
@@ -59,14 +45,13 @@
             flex-wrap: wrap;
             position: sticky;
             top: 0;
-            z-index: 1000;
+            z-index: 100;
         }
 
         nav a {
             color: white;
             text-decoration: none;
-            padding: 15px 20px;
-            font-weight: bold;
+            padding: 16px 20px;
             transition: 0.3s;
         }
 
@@ -75,120 +60,229 @@
             background: #8b1638;
         }
 
-        /* HERO */
-
         .hero {
-            min-height: 300px;
-
             background:
-                linear-gradient(
-                    rgba(50,0,20,0.65),
-                    rgba(50,0,20,0.65)
-                ),
-                url("images/sports.jpg")
-                center/cover no-repeat;
+                linear-gradient(rgba(92,13,36,0.8), rgba(17,17,17,0.8)),
+                url("images/sports.jpg") center/cover;
+
+            min-height: 230px;
 
             display: flex;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
 
             text-align: center;
             color: white;
 
-            padding: 30px;
+            padding: 30px 20px;
         }
 
         .hero h2 {
-            font-size: 45px;
-            margin-bottom: 12px;
+            font-size: 42px;
+            margin-bottom: 10px;
         }
 
         .hero p {
             font-size: 18px;
         }
 
-        /* GENERAL */
-
-        section {
-            padding: 60px 20px;
-        }
-
         .container {
-            max-width: 1150px;
+            max-width: 1200px;
             margin: auto;
+            padding: 40px 20px;
         }
+
+        /* SEARCH */
+
+        .search-box {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            position: relative;
+        }
+
+        .search-box i {
+            position: absolute;
+            left: 18px;
+            top: 17px;
+            color: #777;
+            font-size: 18px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 16px 20px 16px 50px;
+
+            border: 2px solid #ddd;
+            border-radius: 30px;
+
+            font-size: 17px;
+            outline: none;
+            background: white;
+        }
+
+        .search-box input:focus {
+            border-color: #8b1638;
+        }
+
+        /* FILTER BUTTONS */
+
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 35px;
+        }
+
+        .filter-btn {
+            border: none;
+            background: #111;
+            color: white;
+
+            padding: 10px 17px;
+
+            border-radius: 20px;
+
+            cursor: pointer;
+            font-size: 14px;
+
+            transition: 0.3s;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: #8b1638;
+        }
+
+        /* TITLES */
 
         .section-title {
             text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .section-title h2 {
             color: #5c0d24;
-            font-size: 35px;
-            margin-bottom: 10px;
-        }
 
-        .section-title p {
-            color: #666;
+            font-size: 30px;
+
+            margin-bottom: 25px;
         }
 
         /* SPORTS */
 
         .sports-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(220px, 1fr));
+
+            gap: 20px;
         }
 
         .sport-card {
             background: white;
-            border-radius: 18px;
-            padding: 35px 20px;
-            text-align: center;
 
-            box-shadow: 0 5px 18px rgba(0,0,0,0.1);
+            border-radius: 15px;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 5px 18px rgba(0,0,0,0.1);
+
+            cursor: pointer;
 
             transition: 0.3s;
-            cursor: pointer;
+
+            text-align: center;
         }
 
         .sport-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 25px rgba(0,0,0,0.17);
+            transform: translateY(-6px);
+
+            box-shadow:
+                0 10px 25px rgba(0,0,0,0.18);
         }
 
-        .sport-card i {
-            font-size: 48px;
-            color: #8b1638;
-            margin-bottom: 18px;
+        .sport-icon {
+            height: 150px;
+
+            background:
+                linear-gradient(135deg, #5c0d24, #8b1638);
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            color: white;
+
+            font-size: 55px;
         }
 
         .sport-card h3 {
+            padding: 18px 10px 6px;
             color: #5c0d24;
-            margin-bottom: 10px;
-            font-size: 23px;
         }
 
         .sport-card p {
+            padding: 0 10px 18px;
             color: #777;
-            font-size: 14px;
         }
 
-        /* VIDEOS */
+        /* RESULTS */
+
+        .results-header {
+            display: flex;
+
+            justify-content: space-between;
+            align-items: center;
+
+            gap: 15px;
+
+            margin-bottom: 25px;
+
+            flex-wrap: wrap;
+        }
+
+        .results-header h2 {
+            color: #5c0d24;
+        }
+
+        .back-btn {
+            background: #111;
+
+            color: white;
+
+            border: none;
+
+            padding: 11px 18px;
+
+            border-radius: 8px;
+
+            cursor: pointer;
+        }
+
+        .back-btn:hover {
+            background: #8b1638;
+        }
+
+        /* VIDEO GRID */
 
         .video-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 25px;
+
+            grid-template-columns:
+                repeat(auto-fill, minmax(280px, 1fr));
+
+            gap: 22px;
         }
 
         .video-card {
             background: white;
-            border-radius: 15px;
+
+            border-radius: 12px;
+
             overflow: hidden;
 
-            box-shadow: 0 5px 18px rgba(0,0,0,0.12);
+            box-shadow:
+                0 5px 15px rgba(0,0,0,0.1);
 
             transition: 0.3s;
         }
@@ -199,157 +293,166 @@
 
         .video-card video {
             width: 100%;
+
+            height: 220px;
+
             display: block;
+
             background: #000;
         }
 
         .video-info {
-            padding: 18px;
+            padding: 14px;
         }
 
         .video-info h3 {
             color: #5c0d24;
-            margin-bottom: 8px;
+
+            font-size: 17px;
+
+            margin-bottom: 5px;
+
+            word-break: break-word;
         }
 
         .video-info p {
             color: #777;
+
             font-size: 14px;
         }
 
-        /* EMPTY */
+        /* MESSAGE */
 
-        .empty {
+        .message {
             text-align: center;
-            padding: 50px 20px;
 
             background: white;
-            border-radius: 15px;
 
-            color: #777;
+            padding: 35px 20px;
 
-            grid-column: 1 / -1;
+            border-radius: 12px;
+
+            box-shadow:
+                0 5px 15px rgba(0,0,0,0.08);
+
+            color: #666;
         }
 
-        .empty i {
-            font-size: 50px;
+        .message i {
+            font-size: 40px;
+
             color: #8b1638;
+
             margin-bottom: 15px;
         }
 
-        /* LOADING */
-
         .loading {
             text-align: center;
-            padding: 40px;
-            color: #666;
 
-            grid-column: 1 / -1;
+            padding: 35px;
+
+            color: #666;
         }
 
         .loading i {
             font-size: 35px;
+
             color: #8b1638;
+
+            margin-bottom: 12px;
         }
 
-        /* BACK BUTTON */
-
-        .back-btn {
-            display: inline-block;
-
-            margin-bottom: 25px;
-
-            background: #5c0d24;
-            color: white;
-
-            padding: 12px 20px;
-
-            border-radius: 25px;
-
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .back-btn:hover {
-            background: #8b1638;
+        .hidden {
+            display: none !important;
         }
 
         /* TIKTOK */
 
         .tiktok-section {
-            background: #111;
-            color: white;
+            margin-top: 55px;
+
             text-align: center;
         }
 
         .tiktok-section h2 {
-            font-size: 35px;
-            margin-bottom: 15px;
+            color: #5c0d24;
+
+            margin-bottom: 12px;
         }
 
         .tiktok-section p {
-            color: #ccc;
-            max-width: 700px;
-            margin: auto;
-            line-height: 1.7;
-            margin-bottom: 30px;
+            color: #666;
+
+            margin-bottom: 25px;
         }
 
         .tiktok-box {
             max-width: 720px;
-            min-width: 288px;
-            margin: 0 auto 30px;
+
+            margin: auto;
+
             background: white;
-            border-radius: 12px;
-            padding: 10px;
+
+            padding: 20px;
+
+            border-radius: 15px;
+
+            box-shadow:
+                0 5px 18px rgba(0,0,0,0.1);
         }
 
         .tiktok-button {
             display: inline-block;
 
-            background: white;
-            color: #111;
+            margin-top: 20px;
 
-            padding: 14px 25px;
+            background: #111;
 
-            border-radius: 30px;
+            color: white;
 
             text-decoration: none;
-            font-weight: bold;
+
+            padding: 13px 22px;
+
+            border-radius: 8px;
 
             transition: 0.3s;
         }
 
         .tiktok-button:hover {
-            transform: translateY(-4px);
-        }
-
-        .tiktok-button i {
-            margin-right: 8px;
+            background: #8b1638;
         }
 
         /* FOOTER */
 
         footer {
             background: #111;
+
             color: white;
+
             text-align: center;
+
             padding: 30px 20px;
+
+            margin-top: 40px;
         }
 
-        footer p {
-            color: #bbb;
-            margin: 8px;
+        .social-icons {
+            margin: 15px 0;
         }
 
-        /* MOBILE */
+        .social-icons a {
+            color: white;
 
-        @media (max-width: 900px) {
+            font-size: 22px;
 
-            .sports-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+            margin: 0 10px;
 
+            transition: 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #d84a70;
         }
 
         @media (max-width: 600px) {
@@ -358,45 +461,37 @@
                 font-size: 25px;
             }
 
+            .hero h2 {
+                font-size: 30px;
+            }
+
             nav a {
-                padding: 12px 9px;
+                padding: 12px 10px;
+
                 font-size: 14px;
             }
 
-            .hero h2 {
-                font-size: 34px;
-            }
-
-            .sports-grid,
             .video-grid {
                 grid-template-columns: 1fr;
             }
 
-            section {
-                padding: 45px 15px;
+            .sports-grid {
+                grid-template-columns: 1fr;
             }
-
         }
-
     </style>
-
 </head>
 
 <body>
-
-<!-- HEADER -->
 
 <header>
 
     <h1>Silveira High Sports Gallery</h1>
 
-    <p>
-        Sports Videos & Highlights
-    </p>
+    <p>Capturing the moments that matter</p>
 
 </header>
 
-<!-- NAVIGATION -->
 
 <nav>
 
@@ -406,12 +501,12 @@
     </a>
 
     <a href="about.html">
-        <i class="fa-solid fa-school"></i>
+        <i class="fa-solid fa-circle-info"></i>
         About
     </a>
 
     <a href="pictures.html">
-        <i class="fa-solid fa-images"></i>
+        <i class="fa-solid fa-image"></i>
         Pictures
     </a>
 
@@ -421,13 +516,12 @@
     </a>
 
     <a href="contact.html">
-        <i class="fa-solid fa-envelope"></i>
+        <i class="fa-solid fa-phone"></i>
         Contact
     </a>
 
 </nav>
 
-<!-- HERO -->
 
 <section class="hero">
 
@@ -436,214 +530,297 @@
         <h2>Sports Videos</h2>
 
         <p>
-            Watch memorable sporting moments from
-            Silveira High School.
+            Watch sports moments from Silveira High School
         </p>
 
     </div>
 
 </section>
 
-<!-- SPORTS -->
 
-<section>
+<main class="container">
 
-    <div class="container">
 
-        <div class="section-title">
+    <!-- SEARCH -->
 
-            <h2>Choose a Sport</h2>
+    <div class="search-box">
 
-            <p>
-                Select a category to watch its videos.
-            </p>
+        <i class="fa-solid fa-magnifying-glass"></i>
 
-        </div>
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search videos by sport or file name..."
+            autocomplete="off">
+
+    </div>
+
+
+    <!-- FILTERS -->
+
+    <div class="filter-buttons">
+
+        <button class="filter-btn active" data-sport="all">
+            All
+        </button>
+
+        <button class="filter-btn" data-sport="football">
+            Football
+        </button>
+
+        <button class="filter-btn" data-sport="basketball">
+            Basketball
+        </button>
+
+        <button class="filter-btn" data-sport="volleyball">
+            Volleyball
+        </button>
+
+        <button class="filter-btn" data-sport="tennis">
+            Tennis
+        </button>
+
+        <button class="filter-btn" data-sport="netball">
+            Netball
+        </button>
+
+        <button class="filter-btn" data-sport="korfball">
+            Korfball
+        </button>
+
+        <button class="filter-btn" data-sport="handball">
+            Handball
+        </button>
+
+        <button class="filter-btn" data-sport="athletics">
+            Athletics
+        </button>
+
+        <button class="filter-btn" data-sport="other">
+            Other
+        </button>
+
+    </div>
+
+
+    <!-- SPORTS -->
+
+    <section id="sportsSection">
+
+        <h2 class="section-title">
+
+            <i class="fa-solid fa-video"></i>
+
+            Choose a Sport
+
+        </h2>
+
 
         <div class="sports-grid">
+
 
             <div class="sport-card"
                  onclick="openFolder('football','Football')">
 
-                <i class="fa-solid fa-futbol"></i>
+                <div class="sport-icon">
+                    <i class="fa-solid fa-futbol"></i>
+                </div>
 
                 <h3>Football</h3>
 
-                <p>
-                    Football matches and activities
-                </p>
+                <p>Watch football videos</p>
 
             </div>
+
 
             <div class="sport-card"
                  onclick="openFolder('basketball','Basketball')">
 
-                <i class="fa-solid fa-basketball"></i>
+                <div class="sport-icon">
+                    <i class="fa-solid fa-basketball"></i>
+                </div>
 
                 <h3>Basketball</h3>
 
-                <p>
-                    Basketball games and activities
-                </p>
+                <p>Watch basketball videos</p>
 
             </div>
+
 
             <div class="sport-card"
                  onclick="openFolder('volleyball','Volleyball')">
 
-                <i class="fa-solid fa-volleyball"></i>
+                <div class="sport-icon">
+                    <i class="fa-solid fa-volleyball"></i>
+                </div>
 
                 <h3>Volleyball</h3>
 
-                <p>
-                    Volleyball matches and events
-                </p>
+                <p>Watch volleyball videos</p>
 
             </div>
+
 
             <div class="sport-card"
                  onclick="openFolder('tennis','Tennis')">
 
-                <i class="fa-solid fa-table-tennis-paddle-ball"></i>
+                <div class="sport-icon">
+                    <i class="fa-solid fa-table-tennis-paddle-ball"></i>
+                </div>
 
                 <h3>Tennis</h3>
 
-                <p>
-                    Tennis activities and competitions
-                </p>
+                <p>Watch tennis videos</p>
 
             </div>
+
 
             <div class="sport-card"
                  onclick="openFolder('netball','Netball')">
 
-                <i class="fa-solid fa-circle-dot"></i>
+                <div class="sport-icon">
+                    <i class="fa-solid fa-circle-dot"></i>
+                </div>
 
                 <h3>Netball</h3>
 
-                <p>
-                    Netball matches and events
-                </p>
+                <p>Watch netball videos</p>
 
             </div>
+
 
             <div class="sport-card"
                  onclick="openFolder('korfball','Korfball')">
 
-                <i class="fa-solid fa-basketball"></i>
+                <div class="sport-icon">
+                    <i class="fa-solid fa-basketball"></i>
+                </div>
 
                 <h3>Korfball</h3>
 
-                <p>
-                    Korfball activities
-                </p>
+                <p>Watch korfball videos</p>
 
             </div>
+
 
             <div class="sport-card"
                  onclick="openFolder('handball','Handball')">
 
-                <i class="fa-solid fa-hand"></i>
+                <div class="sport-icon">
+                    <i class="fa-solid fa-hand"></i>
+                </div>
 
                 <h3>Handball</h3>
 
-                <p>
-                    Handball matches and activities
-                </p>
+                <p>Watch handball videos</p>
 
             </div>
+
 
             <div class="sport-card"
                  onclick="openFolder('athletics','Athletics')">
 
-                <i class="fa-solid fa-person-running"></i>
+                <div class="sport-icon">
+                    <i class="fa-solid fa-person-running"></i>
+                </div>
 
                 <h3>Athletics</h3>
 
-                <p>
-                    Track and field activities
-                </p>
+                <p>Watch athletics videos</p>
 
             </div>
+
 
             <div class="sport-card"
                  onclick="openFolder('other','Other')">
 
-                <i class="fa-solid fa-star"></i>
+                <div class="sport-icon">
+                    <i class="fa-solid fa-film"></i>
+                </div>
 
                 <h3>Other</h3>
 
-                <p>
-                    Other school activities
-                </p>
+                <p>Other school activities</p>
 
             </div>
 
+
         </div>
 
-    </div>
+    </section>
 
-</section>
 
-<!-- VIDEO SECTION -->
+    <!-- SEARCH RESULTS -->
 
-<section id="videoSection" style="display:none;">
+    <section id="searchSection" class="hidden">
 
-    <div class="container">
+        <div class="results-header">
 
-        <a href="#"
-           class="back-btn"
-           onclick="goBack(); return false;">
+            <h2>
 
-            <i class="fa-solid fa-arrow-left"></i>
+                <i class="fa-solid fa-magnifying-glass"></i>
 
-            Back to Sports
+                Search Results
 
-        </a>
-
-        <div class="section-title">
-
-            <h2 id="videoTitle">
-                Videos
             </h2>
 
-            <p>
-                Watch the videos below.
-            </p>
+
+            <button class="back-btn"
+                    onclick="clearSearch()">
+
+                <i class="fa-solid fa-arrow-left"></i>
+
+                Back to Sports
+
+            </button>
 
         </div>
 
-        <div id="videoGallery"
-             class="video-grid">
+
+        <div id="searchResults"></div>
+
+    </section>
+
+
+    <!-- FOLDER RESULTS -->
+
+    <section id="folderSection" class="hidden">
+
+        <div class="results-header">
+
+            <h2 id="folderTitle"></h2>
+
+
+            <button class="back-btn"
+                    onclick="showSports()">
+
+                <i class="fa-solid fa-arrow-left"></i>
+
+                Back to Sports
+
+            </button>
 
         </div>
 
-    </div>
 
-</section>
+        <div id="folderResults"></div>
 
-<!-- TIKTOK -->
+    </section>
 
-<section class="tiktok-section">
 
-    <div class="container">
+    <!-- TIKTOK -->
+
+    <section class="tiktok-section">
 
         <h2>
-
             <i class="fa-brands fa-tiktok"></i>
-
-            Follow Us on TikTok
-
+            Follow Our TikTok
         </h2>
 
         <p>
-
-            Follow
-            <strong>@silveirahighsportsdesk</strong>
-            for more sports moments, school activities
-            and updates.
-
+            Watch more Silveira High sports moments on TikTok.
         </p>
+
 
         <div class="tiktok-box">
 
@@ -656,9 +833,8 @@
 
                 <section>
 
-                    <a
-                        target="_blank"
-                        href="https://www.tiktok.com/@silveirahighsportsdesk?refer=creator_embed">
+                    <a target="_blank"
+                       href="https://www.tiktok.com/@silveirahighsportsdesk?refer=creator_embed">
 
                         @silveirahighsportsdesk
 
@@ -670,10 +846,11 @@
 
         </div>
 
+
         <a
+            class="tiktok-button"
             href="https://www.tiktok.com/@silveirahighsportsdesk"
-            target="_blank"
-            class="tiktok-button">
+            target="_blank">
 
             <i class="fa-brands fa-tiktok"></i>
 
@@ -681,21 +858,48 @@
 
         </a>
 
-    </div>
+    </section>
 
-</section>
 
-<!-- FOOTER -->
+</main>
+
 
 <footer>
 
-    <p>
-        <strong>Silveira High Sports Gallery</strong>
-    </p>
+    <h3>
+        Silveira High Sports Gallery
+    </h3>
 
     <p>
-        Celebrating Sport • Talent • Teamwork • School Spirit
+        Celebrating sport, teamwork and school spirit.
     </p>
+
+
+    <div class="social-icons">
+
+        <a href="#" aria-label="Facebook">
+            <i class="fa-brands fa-facebook"></i>
+        </a>
+
+        <a href="#" aria-label="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+        </a>
+
+        <a href="#" aria-label="YouTube">
+            <i class="fa-brands fa-youtube"></i>
+        </a>
+
+        <a
+            href="https://www.tiktok.com/@silveirahighsportsdesk"
+            target="_blank"
+            aria-label="TikTok">
+
+            <i class="fa-brands fa-tiktok"></i>
+
+        </a>
+
+    </div>
+
 
     <p>
         © 2026 Silveira High Sports Gallery
@@ -703,7 +907,17 @@
 
 </footer>
 
+
+<!-- TIKTOK SCRIPT -->
+
+<script async src="https://www.tiktok.com/embed.js"></script>
+
+
 <script>
+
+/* -----------------------------------
+   SETTINGS
+----------------------------------- */
 
 const username = "clintonncube";
 
@@ -713,30 +927,271 @@ const repository =
 const branch = "main";
 
 
+const sports = [
+
+    "football",
+    "basketball",
+    "volleyball",
+    "tennis",
+    "netball",
+    "korfball",
+    "handball",
+    "athletics",
+    "other"
+
+];
+
+
+const videoExtensions = [
+
+    ".mp4",
+    ".webm",
+    ".ogg"
+
+];
+
+
+let allVideos = [];
+
+let dataLoaded = false;
+
+
+/* -----------------------------------
+   CHECK VIDEO
+----------------------------------- */
+
+function isVideoFile(file) {
+
+    if (!file || !file.name) {
+        return false;
+    }
+
+    const name =
+        file.name.toLowerCase();
+
+    return videoExtensions.some(ext =>
+        name.endsWith(ext)
+    );
+}
+
+
+/* -----------------------------------
+   LOAD ALL VIDEOS
+----------------------------------- */
+
+async function loadAllVideos() {
+
+    if (dataLoaded) {
+        return allVideos;
+    }
+
+
+    allVideos = [];
+
+
+    const requests =
+        sports.map(async sport => {
+
+            const url =
+                `https://api.github.com/repos/${username}/${repository}/contents/videos/${sport}?ref=${branch}`;
+
+
+            try {
+
+                const response =
+                    await fetch(url);
+
+
+                if (!response.ok) {
+                    return [];
+                }
+
+
+                const files =
+                    await response.json();
+
+
+                if (!Array.isArray(files)) {
+                    return [];
+                }
+
+
+                return files
+
+                    .filter(file =>
+                        isVideoFile(file)
+                    )
+
+                    .map(file => ({
+
+                        name: file.name,
+
+                        url: file.download_url,
+
+                        sport: sport,
+
+                        sportName:
+                            sport.charAt(0).toUpperCase() +
+                            sport.slice(1)
+
+                    }));
+
+
+            } catch (error) {
+
+                console.error(
+                    "Error loading " + sport,
+                    error
+                );
+
+                return [];
+
+            }
+
+        });
+
+
+    const results =
+        await Promise.all(requests);
+
+
+    results.forEach(items => {
+
+        allVideos.push(...items);
+
+    });
+
+
+    dataLoaded = true;
+
+
+    return allVideos;
+}
+
+
+/* -----------------------------------
+   DISPLAY VIDEOS
+----------------------------------- */
+
+function displayVideos(videos, containerId) {
+
+    const container =
+        document.getElementById(containerId);
+
+
+    if (!videos.length) {
+
+        container.innerHTML = `
+
+            <div class="message">
+
+                <i class="fa-solid fa-video-slash"></i>
+
+                <h3>No Videos Found</h3>
+
+                <p>
+                    There are no videos matching your search.
+                </p>
+
+            </div>
+
+        `;
+
+        return;
+    }
+
+
+    container.innerHTML = `
+
+        <div class="video-grid">
+
+            ${videos.map(video => `
+
+                <div class="video-card">
+
+                    <video
+                        controls
+                        preload="metadata">
+
+                        <source
+                            src="${escapeAttribute(video.url)}">
+
+                        Your browser does not support
+                        video playback.
+
+                    </video>
+
+
+                    <div class="video-info">
+
+                        <h3>
+                            ${escapeHTML(video.name)}
+                        </h3>
+
+                        <p>
+
+                            <i class="fa-solid fa-trophy"></i>
+
+                            ${escapeHTML(video.sportName)}
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            `).join("")}
+
+        </div>
+
+    `;
+}
+
+
+/* -----------------------------------
+   OPEN SPORT FOLDER
+----------------------------------- */
+
 async function openFolder(folder, title) {
 
-    const section =
-        document.getElementById("videoSection");
-
-    const gallery =
-        document.getElementById("videoGallery");
-
-    const titleElement =
-        document.getElementById("videoTitle");
+    document
+        .getElementById("sportsSection")
+        .classList.add("hidden");
 
 
-    titleElement.textContent =
-        title + " Videos";
+    document
+        .getElementById("searchSection")
+        .classList.add("hidden");
 
 
-    gallery.innerHTML = `
+    document
+        .getElementById("folderSection")
+        .classList.remove("hidden");
+
+
+    document
+        .getElementById("folderTitle")
+        .innerHTML = `
+
+            <i class="fa-solid fa-video"></i>
+
+            ${title} Videos
+
+        `;
+
+
+    const results =
+        document.getElementById("folderResults");
+
+
+    results.innerHTML = `
 
         <div class="loading">
 
             <i class="fa-solid fa-spinner fa-spin"></i>
 
             <p>
-                Loading videos...
+                Loading ${title} videos...
             </p>
 
         </div>
@@ -744,179 +1199,267 @@ async function openFolder(folder, title) {
     `;
 
 
-    section.style.display = "block";
+    const videos =
+        await loadAllVideos();
 
 
-    section.scrollIntoView({
-        behavior: "smooth"
-    });
+    const folderVideos =
+        videos.filter(video =>
+            video.sport === folder
+        );
 
 
-    try {
-
-        const url =
-            `https://api.github.com/repos/${username}/${repository}/contents/videos/${folder}?ref=${branch}`;
-
-
-        const response =
-            await fetch(url);
+    displayVideos(
+        folderVideos,
+        "folderResults"
+    );
+}
 
 
-        if (!response.ok) {
+/* -----------------------------------
+   SEARCH VIDEOS
+----------------------------------- */
 
-            throw new Error(
-                "Folder not found"
+async function searchVideos(query) {
+
+    query =
+        query.trim().toLowerCase();
+
+
+    if (!query) {
+
+        clearSearch();
+
+        return;
+    }
+
+
+    document
+        .getElementById("sportsSection")
+        .classList.add("hidden");
+
+
+    document
+        .getElementById("folderSection")
+        .classList.add("hidden");
+
+
+    document
+        .getElementById("searchSection")
+        .classList.remove("hidden");
+
+
+    const results =
+        document.getElementById("searchResults");
+
+
+    results.innerHTML = `
+
+        <div class="loading">
+
+            <i class="fa-solid fa-spinner fa-spin"></i>
+
+            <p>
+                Searching videos...
+            </p>
+
+        </div>
+
+    `;
+
+
+    const videos =
+        await loadAllVideos();
+
+
+    const matches =
+        videos.filter(video => {
+
+            const filename =
+                video.name.toLowerCase();
+
+
+            const sport =
+                video.sport.toLowerCase();
+
+
+            const fullPath =
+                `videos/${sport}/${filename}`;
+
+
+            return (
+
+                filename.includes(query) ||
+
+                sport.includes(query) ||
+
+                fullPath.includes(query)
+
             );
-
-        }
-
-
-        const files =
-            await response.json();
-
-
-        const videos =
-            files.filter(file => {
-
-                const name =
-                    file.name.toLowerCase();
-
-
-                return (
-
-                    name.endsWith(".mp4") ||
-
-                    name.endsWith(".webm") ||
-
-                    name.endsWith(".ogg")
-
-                );
-
-            });
-
-
-        if (videos.length === 0) {
-
-            gallery.innerHTML = `
-
-                <div class="empty">
-
-                    <i class="fa-solid fa-video"></i>
-
-                    <h3>
-                        No Videos Yet
-                    </h3>
-
-                    <p>
-
-                        Videos for ${title}
-                        will appear here
-                        when they are uploaded.
-
-                    </p>
-
-                </div>
-
-            `;
-
-            return;
-
-        }
-
-
-        gallery.innerHTML = "";
-
-
-        videos.forEach(file => {
-
-            const card =
-                document.createElement("div");
-
-
-            card.className =
-                "video-card";
-
-
-            card.innerHTML = `
-
-                <video
-                    controls
-                    preload="metadata">
-
-                    <source
-                        src="${file.download_url}"
-                        type="video/mp4">
-
-                    Your browser does not support
-                    video playback.
-
-                </video>
-
-                <div class="video-info">
-
-                    <h3>
-                        ${title}
-                    </h3>
-
-                    <p>
-                        ${file.name}
-                    </p>
-
-                </div>
-
-            `;
-
-
-            gallery.appendChild(card);
 
         });
 
-    }
 
-    catch (error) {
+    displayVideos(
+        matches,
+        "searchResults"
+    );
+}
 
-        gallery.innerHTML = `
 
-            <div class="empty">
+/* -----------------------------------
+   SEARCH INPUT
+----------------------------------- */
 
-                <i class="fa-solid fa-circle-exclamation"></i>
+document
+    .getElementById("searchInput")
+    .addEventListener(
+        "input",
+        function() {
 
-                <h3>
-                    Unable to Load Videos
-                </h3>
+            searchVideos(this.value);
 
-                <p>
+        }
+    );
 
-                    Make sure the
-                    ${folder}
-                    folder exists inside
-                    the videos folder.
 
-                </p>
+/* -----------------------------------
+   FILTER BUTTONS
+----------------------------------- */
 
-            </div>
+document
+    .querySelectorAll(".filter-btn")
+    .forEach(button => {
 
-        `;
+        button.addEventListener(
+            "click",
+            async function() {
 
-    }
+                document
+                    .querySelectorAll(".filter-btn")
+                    .forEach(btn =>
+                        btn.classList.remove("active")
+                    );
+
+
+                this.classList.add("active");
+
+
+                const sport =
+                    this.dataset.sport;
+
+
+                document
+                    .getElementById("searchInput")
+                    .value = "";
+
+
+                if (sport === "all") {
+
+                    showSports();
+
+                    return;
+                }
+
+
+                const title =
+                    sport.charAt(0).toUpperCase() +
+                    sport.slice(1);
+
+
+                await openFolder(
+                    sport,
+                    title
+                );
+
+            }
+        );
+
+    });
+
+
+/* -----------------------------------
+   SHOW SPORTS
+----------------------------------- */
+
+function showSports() {
+
+    document
+        .getElementById("sportsSection")
+        .classList.remove("hidden");
+
+
+    document
+        .getElementById("searchSection")
+        .classList.add("hidden");
+
+
+    document
+        .getElementById("folderSection")
+        .classList.add("hidden");
 
 }
 
 
-function goBack() {
+/* -----------------------------------
+   CLEAR SEARCH
+----------------------------------- */
 
-    document.getElementById("videoSection")
-        .style.display = "none";
+function clearSearch() {
+
+    document
+        .getElementById("searchInput")
+        .value = "";
 
 
-    window.scrollTo({
+    document
+        .querySelectorAll(".filter-btn")
+        .forEach(btn =>
+            btn.classList.remove("active")
+        );
 
-        top: 0,
 
-        behavior: "smooth"
+    document
+        .querySelector(
+            '.filter-btn[data-sport="all"]'
+        )
+        .classList.add("active");
 
-    });
 
+    showSports();
+
+}
+
+
+/* -----------------------------------
+   HTML SAFETY
+----------------------------------- */
+
+function escapeHTML(value) {
+
+    return String(value)
+
+        .replace(/&/g, "&amp;")
+
+        .replace(/</g, "&lt;")
+
+        .replace(/>/g, "&gt;")
+
+        .replace(/"/g, "&quot;")
+
+        .replace(/'/g, "&#039;");
+}
+
+
+function escapeAttribute(value) {
+
+    return String(value)
+
+        .replace(/&/g, "&amp;")
+
+        .replace(/"/g, "&quot;")
+
+        .replace(/'/g, "&#039;");
 }
 
 </script>
