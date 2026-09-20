@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +7,7 @@
     <title>Pictures | Silveira High Sports Gallery</title>
 
     <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
     <style>
         * {
@@ -18,25 +17,25 @@
         }
 
         body {
-            font-family: Arial, sans-serif;
-            background: #f5f5f5;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f4f4f4;
             color: #222;
         }
 
         header {
             background: linear-gradient(135deg, #5c0d24, #8b1638);
             color: white;
+            padding: 25px 20px;
             text-align: center;
-            padding: 35px 20px;
         }
 
         header h1 {
             font-size: 32px;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         header p {
-            opacity: 0.9;
+            font-size: 16px;
         }
 
         nav {
@@ -44,8 +43,6 @@
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 5px;
-            padding: 12px;
             position: sticky;
             top: 0;
             z-index: 100;
@@ -54,8 +51,7 @@
         nav a {
             color: white;
             text-decoration: none;
-            padding: 12px 18px;
-            border-radius: 6px;
+            padding: 16px 20px;
             transition: 0.3s;
         }
 
@@ -64,41 +60,44 @@
             background: #8b1638;
         }
 
-        .container {
-            width: 92%;
-            max-width: 1200px;
-            margin: 35px auto;
-        }
-
-        .intro {
+        .hero {
+            background:
+                linear-gradient(rgba(92,13,36,0.8), rgba(17,17,17,0.8)),
+                url("images/sports.jpg") center/cover;
+            min-height: 230px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            margin-bottom: 30px;
+            color: white;
+            padding: 30px 20px;
         }
 
-        .intro h2 {
-            color: #5c0d24;
-            font-size: 30px;
+        .hero h2 {
+            font-size: 42px;
             margin-bottom: 10px;
         }
 
-        .intro p {
-            color: #555;
-            line-height: 1.6;
+        .hero p {
+            font-size: 18px;
         }
 
-        /* SEARCH */
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 40px 20px;
+        }
 
         .search-box {
-            max-width: 650px;
-            margin: 0 auto 25px;
+            max-width: 700px;
+            margin: 0 auto 30px;
             position: relative;
         }
 
         .search-box i {
             position: absolute;
             left: 18px;
-            top: 50%;
-            transform: translateY(-50%);
+            top: 17px;
             color: #777;
             font-size: 18px;
         }
@@ -108,7 +107,7 @@
             padding: 16px 20px 16px 50px;
             border: 2px solid #ddd;
             border-radius: 30px;
-            font-size: 16px;
+            font-size: 17px;
             outline: none;
             background: white;
         }
@@ -117,9 +116,7 @@
             border-color: #8b1638;
         }
 
-        /* FILTER BUTTONS */
-
-        .filters {
+        .filter-buttons {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
@@ -129,164 +126,201 @@
 
         .filter-btn {
             border: none;
-            background: #ddd;
-            color: #222;
-            padding: 11px 17px;
-            border-radius: 25px;
+            background: #111;
+            color: white;
+            padding: 10px 17px;
+            border-radius: 20px;
             cursor: pointer;
-            font-weight: bold;
+            font-size: 14px;
             transition: 0.3s;
         }
 
-        .filter-btn:hover {
-            background: #bbb;
-        }
-
+        .filter-btn:hover,
         .filter-btn.active {
-            background: #5c0d24;
-            color: white;
+            background: #8b1638;
         }
 
-        /* SPORTS */
+        .section-title {
+            text-align: center;
+            color: #5c0d24;
+            font-size: 30px;
+            margin-bottom: 25px;
+        }
 
         .sports-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 22px;
+            gap: 20px;
         }
 
         .sport-card {
             background: white;
-            border-radius: 14px;
-            padding: 30px 20px;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.1);
             cursor: pointer;
             transition: 0.3s;
+            text-align: center;
         }
 
         .sport-card:hover {
             transform: translateY(-6px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.13);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.18);
         }
 
         .sport-icon {
-            width: 75px;
-            height: 75px;
-            margin: 0 auto 15px;
-            border-radius: 50%;
-            background: #5c0d24;
-            color: white;
+            height: 150px;
+            background: linear-gradient(135deg, #5c0d24, #8b1638);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 31px;
+            color: white;
+            font-size: 55px;
         }
 
         .sport-card h3 {
+            padding: 18px 10px 6px;
             color: #5c0d24;
-            margin-bottom: 8px;
         }
 
         .sport-card p {
-            color: #666;
-            font-size: 14px;
+            padding: 0 10px 18px;
+            color: #777;
         }
 
-        .hidden {
-            display: none !important;
-        }
-
-        /* GALLERY */
-
-        #gallerySection {
-            display: none;
-        }
-
-        .gallery-header {
+        .results-header {
             display: flex;
-            align-items: center;
             justify-content: space-between;
+            align-items: center;
             gap: 15px;
             margin-bottom: 25px;
             flex-wrap: wrap;
         }
 
-        .gallery-header h2 {
+        .results-header h2 {
             color: #5c0d24;
         }
 
         .back-btn {
-            border: none;
             background: #111;
             color: white;
+            border: none;
             padding: 11px 18px;
-            border-radius: 7px;
+            border-radius: 8px;
             cursor: pointer;
-            font-weight: bold;
         }
 
         .back-btn:hover {
-            background: #5c0d24;
+            background: #8b1638;
         }
 
-        .gallery {
+        .picture-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 18px;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 22px;
         }
 
-        .photo-card {
+        .picture-card {
             background: white;
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             cursor: pointer;
             transition: 0.3s;
         }
 
-        .photo-card:hover {
-            transform: scale(1.02);
+        .picture-card:hover {
+            transform: translateY(-5px);
         }
 
-        .photo-card img {
+        .picture-card img {
             width: 100%;
             height: 220px;
             object-fit: cover;
             display: block;
         }
 
-        .photo-name {
-            padding: 12px;
-            font-size: 14px;
+        .picture-info {
+            padding: 14px;
+        }
+
+        .picture-info h3 {
+            color: #5c0d24;
+            font-size: 17px;
+            margin-bottom: 5px;
             word-break: break-word;
         }
 
+        .picture-info p {
+            color: #777;
+            font-size: 14px;
+        }
+
         .message {
-            background: white;
-            padding: 30px;
             text-align: center;
+            background: white;
+            padding: 35px 20px;
             border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
             color: #666;
         }
 
         .message i {
             font-size: 40px;
             color: #8b1638;
+            margin-bottom: 15px;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 35px;
+            color: #666;
+        }
+
+        .loading i {
+            font-size: 35px;
+            color: #8b1638;
             margin-bottom: 12px;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        footer {
+            background: #111;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 40px;
+        }
+
+        .social-icons {
+            margin: 15px 0;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 22px;
+            margin: 0 10px;
+            transition: 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #d84a70;
         }
 
         /* LIGHTBOX */
 
         .lightbox {
-            display: none;
             position: fixed;
             inset: 0;
             background: rgba(0,0,0,0.92);
-            z-index: 9999;
+            display: none;
             align-items: center;
             justify-content: center;
-            padding: 25px;
+            z-index: 1000;
+            padding: 20px;
         }
 
         .lightbox.show {
@@ -305,49 +339,31 @@
             top: 20px;
             right: 25px;
             color: white;
-            font-size: 35px;
+            font-size: 38px;
             cursor: pointer;
         }
 
-        footer {
-            background: #111;
-            color: white;
-            text-align: center;
-            padding: 28px;
-            margin-top: 50px;
-        }
-
-        .social-icons {
-            margin: 15px 0;
-        }
-
-        .social-icons a {
-            color: white;
-            font-size: 21px;
-            margin: 0 8px;
-            text-decoration: none;
-        }
-
-        .social-icons a:hover {
-            color: #d98ba2;
-        }
-
         @media (max-width: 600px) {
+
             header h1 {
                 font-size: 25px;
             }
 
+            .hero h2 {
+                font-size: 30px;
+            }
+
             nav a {
-                padding: 9px 12px;
+                padding: 12px 10px;
                 font-size: 14px;
             }
 
-            .container {
-                width: 94%;
+            .picture-grid {
+                grid-template-columns: 1fr;
             }
 
-            .sport-card {
-                padding: 25px 15px;
+            .sports-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -356,8 +372,8 @@
 <body>
 
 <header>
-    <h1><i class="fa-solid fa-images"></i> Silveira High Sports Gallery</h1>
-    <p>Sports Pictures and School Activities</p>
+    <h1>Silveira High Sports Gallery</h1>
+    <p>Capturing the moments that matter</p>
 </header>
 
 <nav>
@@ -370,7 +386,7 @@
     </a>
 
     <a href="pictures.html" class="active">
-        <i class="fa-solid fa-images"></i> Pictures
+        <i class="fa-solid fa-image"></i> Pictures
     </a>
 
     <a href="videos.html">
@@ -382,15 +398,14 @@
     </a>
 </nav>
 
-<div class="container">
-
-    <div class="intro">
-        <h2>Sports Picture Gallery</h2>
-        <p>
-            Search for a sport or select a category below to view
-            pictures from Silveira High School.
-        </p>
+<section class="hero">
+    <div>
+        <h2>Sports Pictures</h2>
+        <p>Explore sports moments from Silveira High School</p>
     </div>
+</section>
+
+<main class="container">
 
     <!-- SEARCH -->
 
@@ -400,222 +415,218 @@
         <input
             type="text"
             id="searchInput"
-            placeholder="Search for a sport..."
-            oninput="searchSports()">
+            placeholder="Search pictures by sport or file name..."
+            autocomplete="off">
     </div>
 
     <!-- FILTERS -->
 
-    <div class="filters">
+    <div class="filter-buttons">
 
-        <button class="filter-btn active"
-                onclick="filterSport('all', this)">
+        <button class="filter-btn active" data-sport="all">
             All
         </button>
 
-        <button class="filter-btn"
-                onclick="filterSport('football', this)">
-            ⚽ Football
+        <button class="filter-btn" data-sport="football">
+            Football
         </button>
 
-        <button class="filter-btn"
-                onclick="filterSport('basketball', this)">
-            🏀 Basketball
+        <button class="filter-btn" data-sport="basketball">
+            Basketball
         </button>
 
-        <button class="filter-btn"
-                onclick="filterSport('volleyball', this)">
-            🏐 Volleyball
+        <button class="filter-btn" data-sport="volleyball">
+            Volleyball
         </button>
 
-        <button class="filter-btn"
-                onclick="filterSport('tennis', this)">
-            🎾 Tennis
+        <button class="filter-btn" data-sport="tennis">
+            Tennis
         </button>
 
-        <button class="filter-btn"
-                onclick="filterSport('netball', this)">
-            🏐 Netball
+        <button class="filter-btn" data-sport="netball">
+            Netball
         </button>
 
-        <button class="filter-btn"
-                onclick="filterSport('korfball', this)">
-            🤾 Korfball
+        <button class="filter-btn" data-sport="korfball">
+            Korfball
         </button>
 
-        <button class="filter-btn"
-                onclick="filterSport('handball', this)">
-            🤾 Handball
+        <button class="filter-btn" data-sport="handball">
+            Handball
         </button>
 
-        <button class="filter-btn"
-                onclick="filterSport('athletics', this)">
-            🏃 Athletics
+        <button class="filter-btn" data-sport="athletics">
+            Athletics
         </button>
 
-        <button class="filter-btn"
-                onclick="filterSport('other', this)">
-            ⭐ Other
+        <button class="filter-btn" data-sport="other">
+            Other
         </button>
 
     </div>
 
-    <!-- SPORTS -->
+    <!-- SPORTS CATEGORIES -->
 
-    <div id="sportsSection" class="sports-grid">
+    <section id="sportsSection">
 
-        <div class="sport-card" data-sport="football"
-             onclick="openFolder('football','Football')">
-            <div class="sport-icon">
-                <i class="fa-solid fa-futbol"></i>
+        <h2 class="section-title">
+            <i class="fa-solid fa-trophy"></i>
+            Choose a Sport
+        </h2>
+
+        <div class="sports-grid">
+
+            <div class="sport-card" data-sport="football"
+                 onclick="openFolder('football','Football')">
+                <div class="sport-icon">
+                    <i class="fa-solid fa-futbol"></i>
+                </div>
+                <h3>Football</h3>
+                <p>View football pictures</p>
             </div>
-            <h3>Football</h3>
-            <p>View football pictures</p>
+
+            <div class="sport-card" data-sport="basketball"
+                 onclick="openFolder('basketball','Basketball')">
+                <div class="sport-icon">
+                    <i class="fa-solid fa-basketball"></i>
+                </div>
+                <h3>Basketball</h3>
+                <p>View basketball pictures</p>
+            </div>
+
+            <div class="sport-card" data-sport="volleyball"
+                 onclick="openFolder('volleyball','Volleyball')">
+                <div class="sport-icon">
+                    <i class="fa-solid fa-volleyball"></i>
+                </div>
+                <h3>Volleyball</h3>
+                <p>View volleyball pictures</p>
+            </div>
+
+            <div class="sport-card" data-sport="tennis"
+                 onclick="openFolder('tennis','Tennis')">
+                <div class="sport-icon">
+                    <i class="fa-solid fa-table-tennis-paddle-ball"></i>
+                </div>
+                <h3>Tennis</h3>
+                <p>View tennis pictures</p>
+            </div>
+
+            <div class="sport-card" data-sport="netball"
+                 onclick="openFolder('netball','Netball')">
+                <div class="sport-icon">
+                    <i class="fa-solid fa-circle-dot"></i>
+                </div>
+                <h3>Netball</h3>
+                <p>View netball pictures</p>
+            </div>
+
+            <div class="sport-card" data-sport="korfball"
+                 onclick="openFolder('korfball','Korfball')">
+                <div class="sport-icon">
+                    <i class="fa-solid fa-basketball"></i>
+                </div>
+                <h3>Korfball</h3>
+                <p>View korfball pictures</p>
+            </div>
+
+            <div class="sport-card" data-sport="handball"
+                 onclick="openFolder('handball','Handball')">
+                <div class="sport-icon">
+                    <i class="fa-solid fa-hand"></i>
+                </div>
+                <h3>Handball</h3>
+                <p>View handball pictures</p>
+            </div>
+
+            <div class="sport-card" data-sport="athletics"
+                 onclick="openFolder('athletics','Athletics')">
+                <div class="sport-icon">
+                    <i class="fa-solid fa-person-running"></i>
+                </div>
+                <h3>Athletics</h3>
+                <p>View athletics pictures</p>
+            </div>
+
+            <div class="sport-card" data-sport="other"
+                 onclick="openFolder('other','Other')">
+                <div class="sport-icon">
+                    <i class="fa-solid fa-images"></i>
+                </div>
+                <h3>Other</h3>
+                <p>Other school activities</p>
+            </div>
+
         </div>
 
-        <div class="sport-card" data-sport="basketball"
-             onclick="openFolder('basketball','Basketball')">
-            <div class="sport-icon">
-                <i class="fa-solid fa-basketball"></i>
-            </div>
-            <h3>Basketball</h3>
-            <p>View basketball pictures</p>
-        </div>
+    </section>
 
-        <div class="sport-card" data-sport="volleyball"
-             onclick="openFolder('volleyball','Volleyball')">
-            <div class="sport-icon">
-                <i class="fa-solid fa-volleyball"></i>
-            </div>
-            <h3>Volleyball</h3>
-            <p>View volleyball pictures</p>
-        </div>
+    <!-- SEARCH RESULTS -->
 
-        <div class="sport-card" data-sport="tennis"
-             onclick="openFolder('tennis','Tennis')">
-            <div class="sport-icon">
-                <i class="fa-solid fa-table-tennis-paddle-ball"></i>
-            </div>
-            <h3>Tennis</h3>
-            <p>View tennis pictures</p>
-        </div>
+    <section id="searchSection" class="hidden">
 
-        <div class="sport-card" data-sport="netball"
-             onclick="openFolder('netball','Netball')">
-            <div class="sport-icon">
-                <i class="fa-solid fa-circle"></i>
-            </div>
-            <h3>Netball</h3>
-            <p>View netball pictures</p>
-        </div>
+        <div class="results-header">
 
-        <div class="sport-card" data-sport="korfball"
-             onclick="openFolder('korfball','Korfball')">
-            <div class="sport-icon">
-                <i class="fa-solid fa-people-group"></i>
-            </div>
-            <h3>Korfball</h3>
-            <p>View korfball pictures</p>
-        </div>
-
-        <div class="sport-card" data-sport="handball"
-             onclick="openFolder('handball','Handball')">
-            <div class="sport-icon">
-                <i class="fa-solid fa-hand"></i>
-            </div>
-            <h3>Handball</h3>
-            <p>View handball pictures</p>
-        </div>
-
-        <div class="sport-card" data-sport="athletics"
-             onclick="openFolder('athletics','Athletics')">
-            <div class="sport-icon">
-                <i class="fa-solid fa-person-running"></i>
-            </div>
-            <h3>Athletics</h3>
-            <p>View athletics pictures</p>
-        </div>
-
-        <div class="sport-card" data-sport="other"
-             onclick="openFolder('other','Other')">
-            <div class="sport-icon">
-                <i class="fa-solid fa-star"></i>
-            </div>
-            <h3>Other</h3>
-            <p>Other school activities</p>
-        </div>
-
-    </div>
-
-    <!-- NO SEARCH RESULTS -->
-
-    <div id="noResults" class="message hidden">
-        <i class="fa-solid fa-magnifying-glass"></i>
-        <h3>No sport found</h3>
-        <p>Try another search.</p>
-    </div>
-
-    <!-- GALLERY -->
-
-    <div id="gallerySection">
-
-        <div class="gallery-header">
-
-            <h2 id="galleryTitle">
-                Pictures
+            <h2>
+                <i class="fa-solid fa-magnifying-glass"></i>
+                Search Results
             </h2>
 
-            <button class="back-btn"
-                    onclick="showSports()">
+            <button class="back-btn" onclick="clearSearch()">
                 <i class="fa-solid fa-arrow-left"></i>
                 Back to Sports
             </button>
 
         </div>
 
-        <div id="gallery"
-             class="gallery">
+        <div id="searchResults"></div>
+
+    </section>
+
+    <!-- FOLDER PICTURES -->
+
+    <section id="folderSection" class="hidden">
+
+        <div class="results-header">
+
+            <h2 id="folderTitle"></h2>
+
+            <button class="back-btn" onclick="showSports()">
+                <i class="fa-solid fa-arrow-left"></i>
+                Back to Sports
+            </button>
+
         </div>
 
-    </div>
+        <div id="folderResults"></div>
 
-</div>
+    </section>
 
-<!-- LIGHTBOX -->
-
-<div id="lightbox"
-     class="lightbox"
-     onclick="closeLightbox()">
-
-    <span class="close-lightbox">
-        &times;
-    </span>
-
-    <img id="lightboxImage"
-         src=""
-         alt="Enlarged sports picture"
-         onclick="event.stopPropagation()">
-
-</div>
+</main>
 
 <footer>
 
+    <h3>Silveira High Sports Gallery</h3>
+
+    <p>Celebrating sport, teamwork and school spirit.</p>
+
     <div class="social-icons">
 
-        <a href="#">
+        <a href="#" aria-label="Facebook">
             <i class="fa-brands fa-facebook"></i>
         </a>
 
-        <a href="#">
+        <a href="#" aria-label="Instagram">
             <i class="fa-brands fa-instagram"></i>
         </a>
 
-        <a href="#">
+        <a href="#" aria-label="YouTube">
             <i class="fa-brands fa-youtube"></i>
         </a>
 
         <a href="https://www.tiktok.com/@silveirahighsportsdesk"
-           target="_blank">
+           target="_blank"
+           aria-label="TikTok">
             <i class="fa-brands fa-tiktok"></i>
         </a>
 
@@ -627,13 +638,37 @@
 
 </footer>
 
+<!-- LIGHTBOX -->
+
+<div class="lightbox" id="lightbox">
+
+    <span class="close-lightbox" onclick="closeLightbox()">
+        &times;
+    </span>
+
+    <img id="lightboxImage" src="" alt="Enlarged sports picture">
+
+</div>
+
 <script>
 
 const username = "clintonncube";
 const repository = "silveira-high-sports-gallery";
 const branch = "main";
 
-const supportedExtensions = [
+const sports = [
+    "football",
+    "basketball",
+    "volleyball",
+    "tennis",
+    "netball",
+    "korfball",
+    "handball",
+    "athletics",
+    "other"
+];
+
+const imageExtensions = [
     ".jpg",
     ".jpeg",
     ".png",
@@ -641,183 +676,458 @@ const supportedExtensions = [
     ".webp"
 ];
 
+let allPictures = [];
+let dataLoaded = false;
 
-/* SEARCH */
+let currentSport = "all";
 
-function searchSports() {
 
-    const search =
-        document.getElementById("searchInput")
-        .value
-        .toLowerCase()
-        .trim();
+/* -----------------------------------
+   CHECK IMAGE FILE
+----------------------------------- */
 
-    const cards =
-        document.querySelectorAll(".sport-card");
+function isImageFile(file) {
 
-    let found = 0;
-
-    cards.forEach(card => {
-
-        const sport =
-            card.dataset.sport.toLowerCase();
-
-        if (
-            search === "" ||
-            sport.includes(search)
-        ) {
-            card.classList.remove("hidden");
-            found++;
-        } else {
-            card.classList.add("hidden");
-        }
-
-    });
-
-    const noResults =
-        document.getElementById("noResults");
-
-    if (found === 0) {
-        noResults.classList.remove("hidden");
-    } else {
-        noResults.classList.add("hidden");
+    if (!file || !file.name) {
+        return false;
     }
 
+    const name = file.name.toLowerCase();
+
+    return imageExtensions.some(ext =>
+        name.endsWith(ext)
+    );
 }
 
 
-/* FILTER */
+/* -----------------------------------
+   LOAD ALL PICTURES
+----------------------------------- */
 
-function filterSport(sport, button) {
+async function loadAllPictures() {
 
-    const cards =
-        document.querySelectorAll(".sport-card");
-
-    document
-        .querySelectorAll(".filter-btn")
-        .forEach(btn => {
-            btn.classList.remove("active");
-        });
-
-    button.classList.add("active");
-
-    document.getElementById("searchInput").value = "";
-
-    let found = 0;
-
-    cards.forEach(card => {
-
-        if (
-            sport === "all" ||
-            card.dataset.sport === sport
-        ) {
-            card.classList.remove("hidden");
-            found++;
-        } else {
-            card.classList.add("hidden");
-        }
-
-    });
-
-    const noResults =
-        document.getElementById("noResults");
-
-    if (found === 0) {
-        noResults.classList.remove("hidden");
-    } else {
-        noResults.classList.add("hidden");
+    if (dataLoaded) {
+        return allPictures;
     }
 
-}
-
-
-/* OPEN SPORT FOLDER */
-
-async function openFolder(folder, title) {
-
-    document.getElementById("sportsSection").style.display = "none";
-
-    document.querySelector(".filters").style.display = "none";
-
-    document.querySelector(".search-box").style.display = "none";
-
-    document.querySelector(".intro").style.display = "none";
-
-    document.getElementById("noResults")
-        .classList.add("hidden");
-
-    document.getElementById("gallerySection")
-        .style.display = "block";
-
-    document.getElementById("galleryTitle")
-        .textContent = title + " Pictures";
-
-    const gallery =
-        document.getElementById("gallery");
-
-    gallery.innerHTML = `
-        <div class="message">
-            <i class="fa-solid fa-spinner fa-spin"></i>
-            <h3>Loading pictures...</h3>
-            <p>Please wait.</p>
-        </div>
-    `;
-
-    const url =
-        `https://api.github.com/repos/${username}/${repository}/contents/images/${folder}?ref=${branch}`;
+    allPictures = [];
 
     try {
 
-        const response = await fetch(url);
+        const requests = sports.map(async sport => {
 
-        if (!response.ok) {
-            throw new Error("Folder could not be loaded.");
-        }
+            const url =
+                `https://api.github.com/repos/${username}/${repository}/contents/images/${sport}?ref=${branch}`;
 
-        const files = await response.json();
+            try {
 
-        const pictures =
-            files.filter(file => {
+                const response = await fetch(url);
 
-                if (file.type !== "file") {
-                    return false;
+                if (!response.ok) {
+                    return [];
                 }
 
-                const name =
-                    file.name.toLowerCase();
+                const files = await response.json();
 
-                return supportedExtensions
-                    .some(ext => name.endsWith(ext));
+                if (!Array.isArray(files)) {
+                    return [];
+                }
 
-            });
+                return files
+                    .filter(file => isImageFile(file))
+                    .map(file => ({
+                        name: file.name,
+                        url: file.download_url,
+                        sport: sport,
+                        sportName:
+                            sport.charAt(0).toUpperCase() +
+                            sport.slice(1)
+                    }));
 
-        if (pictures.length === 0) {
+            } catch (error) {
 
-            gallery.innerHTML = `
-                <div class="message">
-                    <i class="fa-solid fa-image"></i>
-                    <h3>No pictures yet</h3>
-                    <p>
-                        Pictures for ${title} will appear here
-                        after they are uploaded.
-                    </p>
+                console.error(
+                    "Error loading " + sport,
+                    error
+                );
+
+                return [];
+            }
+
+        });
+
+        const results = await Promise.all(requests);
+
+        results.forEach(items => {
+            allPictures.push(...items);
+        });
+
+        dataLoaded = true;
+
+        return allPictures;
+
+    } catch (error) {
+
+        console.error(error);
+
+        return [];
+    }
+}
+
+
+/* -----------------------------------
+   DISPLAY PICTURES
+----------------------------------- */
+
+function displayPictures(pictures, containerId) {
+
+    const container =
+        document.getElementById(containerId);
+
+    if (!pictures.length) {
+
+        container.innerHTML = `
+            <div class="message">
+                <i class="fa-solid fa-image"></i>
+
+                <h3>No Pictures Found</h3>
+
+                <p>
+                    There are no pictures matching your search.
+                </p>
+            </div>
+        `;
+
+        return;
+    }
+
+    container.innerHTML = `
+        <div class="picture-grid">
+
+            ${pictures.map((picture, index) => `
+
+                <div class="picture-card"
+                     onclick="openLightbox('${escapeAttribute(picture.url)}')">
+
+                    <img
+                        src="${escapeAttribute(picture.url)}"
+                        alt="${escapeAttribute(picture.name)}"
+                        loading="lazy"
+                        onerror="this.parentElement.style.display='none';">
+
+                    <div class="picture-info">
+
+                        <h3>
+                            ${escapeHTML(picture.name)}
+                        </h3>
+
+                        <p>
+                            <i class="fa-solid fa-trophy"></i>
+                            ${escapeHTML(picture.sportName)}
+                        </p>
+
+                    </div>
+
                 </div>
-            `;
 
-            return;
+            `).join("")}
+
+        </div>
+    `;
+}
+
+
+/* -----------------------------------
+   OPEN SPORT FOLDER
+----------------------------------- */
+
+async function openFolder(folder, title) {
+
+    document.getElementById("sportsSection")
+        .classList.add("hidden");
+
+    document.getElementById("searchSection")
+        .classList.add("hidden");
+
+    document.getElementById("folderSection")
+        .classList.remove("hidden");
+
+    document.getElementById("folderTitle").innerHTML =
+        `<i class="fa-solid fa-images"></i> ${title} Pictures`;
+
+    const results =
+        document.getElementById("folderResults");
+
+    results.innerHTML = `
+        <div class="loading">
+            <i class="fa-solid fa-spinner fa-spin"></i>
+            <p>Loading ${title} pictures...</p>
+        </div>
+    `;
+
+    const pictures = await loadAllPictures();
+
+    const folderPictures =
+        pictures.filter(picture =>
+            picture.sport === folder
+        );
+
+    displayPictures(
+        folderPictures,
+        "folderResults"
+    );
+}
+
+
+/* -----------------------------------
+   SEARCH PICTURES
+----------------------------------- */
+
+async function searchPictures(query) {
+
+    const searchSection =
+        document.getElementById("searchSection");
+
+    const sportsSection =
+        document.getElementById("sportsSection");
+
+    const folderSection =
+        document.getElementById("folderSection");
+
+    query = query.trim().toLowerCase();
+
+    if (!query) {
+
+        clearSearch();
+        return;
+    }
+
+    sportsSection.classList.add("hidden");
+    folderSection.classList.add("hidden");
+    searchSection.classList.remove("hidden");
+
+    const results =
+        document.getElementById("searchResults");
+
+    results.innerHTML = `
+        <div class="loading">
+            <i class="fa-solid fa-spinner fa-spin"></i>
+            <p>Searching pictures...</p>
+        </div>
+    `;
+
+    const pictures = await loadAllPictures();
+
+    const matches = pictures.filter(picture => {
+
+        const filename =
+            picture.name.toLowerCase();
+
+        const sport =
+            picture.sport.toLowerCase();
+
+        const fullPath =
+            `images/${sport}/${filename}`;
+
+        return (
+            filename.includes(query) ||
+            sport.includes(query) ||
+            fullPath.includes(query)
+        );
+    });
+
+    displayPictures(
+        matches,
+        "searchResults"
+    );
+}
+
+
+/* -----------------------------------
+   SEARCH INPUT
+----------------------------------- */
+
+document
+    .getElementById("searchInput")
+    .addEventListener("input", function() {
+
+        searchPictures(this.value);
+
+    });
+
+
+/* -----------------------------------
+   SPORT FILTER BUTTONS
+----------------------------------- */
+
+document
+    .querySelectorAll(".filter-btn")
+    .forEach(button => {
+
+        button.addEventListener("click", async function() {
+
+            document
+                .querySelectorAll(".filter-btn")
+                .forEach(btn =>
+                    btn.classList.remove("active")
+                );
+
+            this.classList.add("active");
+
+            const sport =
+                this.dataset.sport;
+
+            currentSport = sport;
+
+            document
+                .getElementById("searchInput")
+                .value = "";
+
+            if (sport === "all") {
+
+                showSports();
+
+                return;
+            }
+
+            const title =
+                sport.charAt(0).toUpperCase() +
+                sport.slice(1);
+
+            await openFolder(
+                sport,
+                title
+            );
+
+        });
+
+    });
+
+
+/* -----------------------------------
+   SHOW SPORTS
+----------------------------------- */
+
+function showSports() {
+
+    document
+        .getElementById("sportsSection")
+        .classList.remove("hidden");
+
+    document
+        .getElementById("searchSection")
+        .classList.add("hidden");
+
+    document
+        .getElementById("folderSection")
+        .classList.add("hidden");
+}
+
+
+/* -----------------------------------
+   CLEAR SEARCH
+----------------------------------- */
+
+function clearSearch() {
+
+    document
+        .getElementById("searchInput")
+        .value = "";
+
+    currentSport = "all";
+
+    document
+        .querySelectorAll(".filter-btn")
+        .forEach(btn =>
+            btn.classList.remove("active")
+        );
+
+    document
+        .querySelector('.filter-btn[data-sport="all"]')
+        .classList.add("active");
+
+    showSports();
+}
+
+
+/* -----------------------------------
+   LIGHTBOX
+----------------------------------- */
+
+function openLightbox(url) {
+
+    const lightbox =
+        document.getElementById("lightbox");
+
+    const image =
+        document.getElementById("lightboxImage");
+
+    image.src = url;
+
+    lightbox.classList.add("show");
+}
+
+
+function closeLightbox() {
+
+    document
+        .getElementById("lightbox")
+        .classList.remove("show");
+
+    document
+        .getElementById("lightboxImage")
+        .src = "";
+}
+
+
+/* Close lightbox with ESC */
+
+document.addEventListener("keydown", function(event) {
+
+    if (event.key === "Escape") {
+        closeLightbox();
+    }
+
+});
+
+
+/* Close when clicking outside image */
+
+document
+    .getElementById("lightbox")
+    .addEventListener("click", function(event) {
+
+        if (event.target === this) {
+            closeLightbox();
         }
 
-        gallery.innerHTML = "";
+    });
 
-        pictures.forEach(file => {
 
-            const card =
-                document.createElement("div");
+/* -----------------------------------
+   SECURITY / HTML HELPERS
+----------------------------------- */
 
-            card.className = "photo-card";
+function escapeHTML(value) {
 
-            card.innerHTML = `
-                <img
-                    src="${file.download_url}"
-                    alt="${file.name}"
-```
+    return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+}
+
+
+function escapeAttribute(value) {
+
+    return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+}
+
+</script>
+
+</body>
+</html>
