@@ -1,148 +1,214 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Sports Gallery Admin</title>
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard | Silveira High Sports Gallery</title>
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
     <style>
+
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-            font-family: Arial, sans-serif;
+            font-family: Arial, Helvetica, sans-serif;
             background: #f4f4f4;
             color: #222;
         }
 
+        /* HEADER */
+
         header {
-            background: linear-gradient(135deg, #5c0d24, #8b1638);
+            background: linear-gradient(
+                135deg,
+                #5c0d24,
+                #8b1638
+            );
+
             color: white;
             text-align: center;
-            padding: 45px 20px;
+            padding: 35px 20px;
+        }
+
+        header i {
+            font-size: 45px;
+            margin-bottom: 15px;
         }
 
         header h1 {
-            font-size: 2.3rem;
-            margin-bottom: 10px;
+            font-size: 32px;
+            margin-bottom: 8px;
         }
 
         header p {
-            font-size: 1rem;
+            opacity: 0.9;
         }
+
+        /* NAV */
 
         nav {
             background: #111;
-            text-align: center;
-            padding: 12px;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
         nav a {
             color: white;
             text-decoration: none;
-            display: inline-block;
-            padding: 10px 18px;
-            margin: 3px;
-            border-radius: 6px;
+            padding: 15px 20px;
+            font-weight: bold;
+            transition: 0.3s;
         }
 
         nav a:hover {
             background: #8b1638;
         }
 
-        .container {
-            width: 92%;
-            max-width: 1100px;
-            margin: 40px auto;
+        /* MAIN */
+
+        main {
+            max-width: 1150px;
+            margin: auto;
+            padding: 50px 20px;
         }
 
         .welcome {
-            text-align: center;
-            margin-bottom: 40px;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 35px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.08);
         }
 
         .welcome h2 {
             color: #5c0d24;
             margin-bottom: 10px;
-            font-size: 2rem;
         }
 
         .welcome p {
             color: #666;
+            line-height: 1.7;
         }
+
+        /* SECTION */
 
         .section {
             margin-bottom: 45px;
         }
 
         .section-title {
-            background: #5c0d24;
-            color: white;
-            padding: 15px 20px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 25px;
         }
 
-        .folders {
+        .section-title i {
+            font-size: 30px;
+            color: #8b1638;
+        }
+
+        .section-title h2 {
+            color: #5c0d24;
+        }
+
+        /* GRID */
+
+        .sports-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 18px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
         }
 
-        .folder {
+        /* CARD */
+
+        .card {
             background: white;
-            border-radius: 12px;
-            padding: 25px 15px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
             transition: 0.3s;
         }
 
-        .folder:hover {
+        .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 9px 22px rgba(0,0,0,0.16);
+            box-shadow: 0 10px 22px rgba(0,0,0,0.13);
         }
 
-        .folder-icon {
-            font-size: 42px;
-            margin-bottom: 12px;
-        }
-
-        .folder h3 {
-            color: #5c0d24;
+        .card-icon {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background: #f1dce3;
+            color: #8b1638;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 25px;
             margin-bottom: 15px;
         }
 
-        .upload-button {
+        .card h3 {
+            color: #5c0d24;
+            margin-bottom: 8px;
+        }
+
+        .card p {
+            color: #777;
+            font-size: 14px;
+            margin-bottom: 18px;
+            line-height: 1.5;
+        }
+
+        /* BUTTON */
+
+        .upload-btn {
             display: inline-block;
+            width: 100%;
+            text-align: center;
             background: #5c0d24;
             color: white;
             text-decoration: none;
-            padding: 10px 18px;
-            border-radius: 7px;
-            font-size: 14px;
+            padding: 12px 15px;
+            border-radius: 25px;
+            font-weight: bold;
             transition: 0.3s;
         }
 
-        .upload-button:hover {
+        .upload-btn:hover {
             background: #8b1638;
+            transform: translateY(-2px);
         }
 
+        .upload-btn i {
+            margin-right: 7px;
+        }
+
+        /* TIKTOK */
+
         .tiktok {
-            background: linear-gradient(135deg, #111, #333);
+            background: #111;
             color: white;
+            padding: 35px;
+            border-radius: 18px;
             text-align: center;
-            padding: 35px 20px;
-            border-radius: 15px;
-            margin-top: 20px;
+        }
+
+        .tiktok i {
+            font-size: 45px;
+            margin-bottom: 15px;
         }
 
         .tiktok h2 {
@@ -150,64 +216,105 @@
         }
 
         .tiktok p {
-            color: #ddd;
+            color: #bbb;
             margin-bottom: 20px;
         }
 
-        .tiktok-button {
+        .tiktok a {
             display: inline-block;
             background: white;
             color: #111;
             text-decoration: none;
-            padding: 12px 22px;
+            padding: 13px 25px;
             border-radius: 25px;
             font-weight: bold;
+            transition: 0.3s;
         }
+
+        .tiktok a:hover {
+            transform: scale(1.05);
+        }
+
+        /* WARNING */
+
+        .notice {
+            margin-top: 35px;
+            padding: 20px;
+            background: #fff4f7;
+            border-left: 5px solid #8b1638;
+            border-radius: 8px;
+        }
+
+        .notice strong {
+            color: #5c0d24;
+        }
+
+        .notice p {
+            color: #666;
+            margin-top: 7px;
+            line-height: 1.6;
+        }
+
+        /* FOOTER */
 
         footer {
             background: #111;
             color: white;
             text-align: center;
-            padding: 25px 15px;
-            margin-top: 50px;
+            padding: 30px 20px;
         }
 
         footer p {
-            margin: 5px;
+            color: #bbb;
+            margin: 7px;
         }
 
-        .notice {
-            background: #fff3cd;
-            border-left: 5px solid #d39e00;
-            padding: 18px;
-            margin-bottom: 35px;
-            border-radius: 7px;
-            line-height: 1.6;
+        /* MOBILE */
+
+        @media (max-width: 850px) {
+
+            .sports-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
         }
 
         @media (max-width: 600px) {
 
             header h1 {
-                font-size: 1.8rem;
+                font-size: 25px;
             }
 
             nav a {
-                padding: 8px 10px;
+                padding: 12px 9px;
                 font-size: 14px;
             }
 
-            .container {
-                width: 94%;
+            .sports-grid {
+                grid-template-columns: 1fr;
             }
+
+            main {
+                padding: 35px 15px;
+            }
+
         }
+
     </style>
+
 </head>
 
 <body>
 
+<!-- HEADER -->
+
 <header>
 
-    <h1>⚙️ Sports Gallery Admin</h1>
+    <i class="fa-solid fa-shield-halved"></i>
+
+    <h1>
+        Sports Gallery Admin
+    </h1>
 
     <p>
         Manage pictures, videos and sports content
@@ -215,217 +322,289 @@
 
 </header>
 
+<!-- NAVIGATION -->
 
 <nav>
 
-    <a href="index.html">Home</a>
+    <a href="index.html">
+        <i class="fa-solid fa-house"></i>
+        Website
+    </a>
 
-    <a href="about.html">About</a>
+    <a href="pictures.html">
+        <i class="fa-solid fa-images"></i>
+        Pictures
+    </a>
 
-    <a href="pictures.html">Pictures</a>
+    <a href="videos.html">
+        <i class="fa-solid fa-video"></i>
+        Videos
+    </a>
 
-    <a href="videos.html">Videos</a>
-
-    <a href="contact.html">Contact</a>
+    <a href="contact.html">
+        <i class="fa-solid fa-envelope"></i>
+        Contact
+    </a>
 
 </nav>
 
+<!-- MAIN -->
 
-<div class="container">
+<main>
 
     <div class="welcome">
 
-        <h2>Sports Gallery Management</h2>
+        <h2>
+            Welcome to the Admin Dashboard
+        </h2>
 
         <p>
-            Choose a folder below to upload new pictures or videos.
+            Use the buttons below to add new pictures and
+            videos to the correct sports category. Clicking
+            an upload button will open GitHub's upload page
+            for that folder.
         </p>
-
-    </div>
-
-
-    <div class="notice">
-
-        <strong>How uploading works:</strong>
-
-        <br>
-
-        Click a sport's <strong>Upload</strong> button.
-        GitHub will open the correct folder.
-        Add your file and click <strong>Commit changes</strong>.
-        The file will then appear automatically on the website.
 
     </div>
 
 
     <!-- PICTURES -->
 
-    <div class="section">
+    <section class="section">
 
         <div class="section-title">
-            📸 Upload Pictures
+
+            <i class="fa-solid fa-images"></i>
+
+            <h2>
+                Upload Pictures
+            </h2>
+
         </div>
 
 
-        <div class="folders">
+        <div class="sports-grid">
 
 
-            <div class="folder">
+            <div class="card">
 
-                <div class="folder-icon">⚽</div>
+                <div class="card-icon">
+                    <i class="fa-solid fa-futbol"></i>
+                </div>
 
                 <h3>Football</h3>
 
-                <a
-                    class="upload-button"
-                    href="https://github.com/clintonncube/silveira-high-sports-gallery/upload/main/images/football"
-                    target="_blank">
+                <p>
+                    Add football photographs.
+                </p>
 
-                    Upload
+                <a
+                    class="upload-btn"
+                    target="_blank"
+                    href="https://github.com/clintonncube/silveira-high-sports-gallery/upload/main/images/football">
+
+                    <i class="fa-solid fa-upload"></i>
+                    Upload Pictures
 
                 </a>
 
             </div>
 
 
-            <div class="folder">
+            <div class="card">
 
-                <div class="folder-icon">🏀</div>
+                <div class="card-icon">
+                    <i class="fa-solid fa-basketball"></i>
+                </div>
 
                 <h3>Basketball</h3>
 
-                <a
-                    class="upload-button"
-                    href="https://github.com/clintonncube/silveira-high-sports-gallery/upload/main/images/basketball"
-                    target="_blank">
+                <p>
+                    Add basketball photographs.
+                </p>
 
-                    Upload
+                <a
+                    class="upload-btn"
+                    target="_blank"
+                    href="https://github.com/clintonncube/silveira-high-sports-gallery/upload/main/images/basketball">
+
+                    <i class="fa-solid fa-upload"></i>
+                    Upload Pictures
 
                 </a>
 
             </div>
 
 
-            <div class="folder">
+            <div class="card">
 
-                <div class="folder-icon">🏐</div>
+                <div class="card-icon">
+                    <i class="fa-solid fa-volleyball"></i>
+                </div>
 
                 <h3>Volleyball</h3>
 
-                <a
-                    class="upload-button"
-                    href="https://github.com/clintonncube/silveira-high-sports-gallery/upload/main/images/volleyball"
-                    target="_blank">
+                <p>
+                    Add volleyball photographs.
+                </p>
 
-                    Upload
+                <a
+                    class="upload-btn"
+                    target="_blank"
+                    href="https://github.com/clintonncube/silveira-high-sports-gallery/upload/main/images/volleyball">
+
+                    <i class="fa-solid fa-upload"></i>
+                    Upload Pictures
 
                 </a>
 
             </div>
 
 
-            <div class="folder">
+            <div class="card">
 
-                <div class="folder-icon">🎾</div>
+                <div class="card-icon">
+                    <i class="fa-solid fa-table-tennis-paddle-ball"></i>
+                </div>
 
                 <h3>Tennis</h3>
 
-                <a
-                    class="upload-button"
-                    href="https://github.com/clintonncube/silveira-high-sports-gallery/upload/main/images/tennis"
-                    target="_blank">
+                <p>
+                    Add tennis photographs.
+                </p>
 
-                    Upload
+                <a
+                    class="upload-btn"
+                    target="_blank"
+                    href="https://github.com/clintonncube/silveira-high-sports-gallery/upload/main/images/tennis">
+
+                    <i class="fa-solid fa-upload"></i>
+                    Upload Pictures
 
                 </a>
 
             </div>
 
 
-            <div class="folder">
+            <div class="card">
 
-                <div class="folder-icon">🏐</div>
+                <div class="card-icon">
+                    <i class="fa-solid fa-circle-dot"></i>
+                </div>
 
                 <h3>Netball</h3>
 
-                <a
-                    class="upload-button"
-                    href="https://github.com/clintonncube/silveira-high-sports-gallery/upload/main/images/netball"
-                    target="_blank">
+                <p>
+                    Add netball photographs.
+                </p>
 
-                    Upload
+                <a
+                    class="upload-btn"
+                    target="_blank"
+                    href="https://github.com/clintonncube/silveira-high-sports-gallery/upload/main/images/netball">
+
+                    <i class="fa-solid fa-upload"></i>
+                    Upload Pictures
 
                 </a>
 
             </div>
 
 
-            <div class="folder">
+            <div class="card">
 
-                <div class="folder-icon">🏀</div>
+                <div class="card-icon">
+                    <i class="fa-solid fa-basketball"></i>
+                </div>
 
                 <h3>Korfball</h3>
 
-                <a
-                    class="upload-button"
-                    href="https://github.com/clintonncube/silveira-high-sports-gallery/upload/main/images/korfball"
-                    target="_blank">
+                <p>
+                    Add korfball photographs.
+                </p>
 
-                    Upload
+                <a
+                    class="upload-btn"
+                    target="_blank"
+                    href="https://github.com/clintonncube/silveira-high-sports-gallery/upload/main/images/korfball">
+
+                    <i class="fa-solid fa-upload"></i>
+                    Upload Pictures
 
                 </a>
 
             </div>
 
 
-            <div class="folder">
+            <div class="card">
 
-                <div class="folder-icon">🤾</div>
+                <div class="card-icon">
+                    <i class="fa-solid fa-hand"></i>
+                </div>
 
                 <h3>Handball</h3>
 
-                <a
-                    class="upload-button"
-                    href="https://github.com/clintonncube/silveira-high-sports-gallery/upload/main/images/handball"
-                    target="_blank">
+                <p>
+                    Add handball photographs.
+                </p>
 
-                    Upload
+                <a
+                    class="upload-btn"
+                    target="_blank"
+                    href="https://github.com/clintonncube/silveira-high-sports-gallery/upload/main/images/handball">
+
+                    <i class="fa-solid fa-upload"></i>
+                    Upload Pictures
 
                 </a>
 
             </div>
 
 
-            <div class="folder">
+            <div class="card">
 
-                <div class="folder-icon">🏃</div>
+                <div class="card-icon">
+                    <i class="fa-solid fa-person-running"></i>
+                </div>
 
                 <h3>Athletics</h3>
 
-                <a
-                    class="upload-button"
-                    href="https://github.com/clintonncube/silveira-high-sports-gallery/upload/main/images/athletics"
-                    target="_blank">
+                <p>
+                    Add athletics photographs.
+                </p>
 
-                    Upload
+                <a
+                    class="upload-btn"
+                    target="_blank"
+                    href="https://github.com/clintonncube/silveira-high-sports-gallery/upload/main/images/athletics">
+
+                    <i class="fa-solid fa-upload"></i>
+                    Upload Pictures
 
                 </a>
 
             </div>
 
 
-            <div class="folder">
+            <div class="card">
 
-                <div class="folder-icon">📸</div>
+                <div class="card-icon">
+                    <i class="fa-solid fa-star"></i>
+                </div>
 
                 <h3>Other</h3>
 
-                <a
-                    class="upload-button"
-                    href="https://github.com/clintonncube/silveira-high-sports-gallery/upload/main/images/other"
-                    target="_blank">
+                <p>
+                    Add other school photographs.
+                </p>
 
-                    Upload
+                <a
+                    class="upload-btn"
+                    target="_blank"
+                    href="https://github.com/clintonncube/silveira-high-sports-gallery/upload/main/images/other">
+
+                    <i class="fa-solid fa-upload"></i>
+                    Upload Pictures
 
                 </a>
 
@@ -433,177 +612,246 @@
 
         </div>
 
-    </div>
+    </section>
 
 
     <!-- VIDEOS -->
 
-    <div class="section">
+    <section class="section">
 
         <div class="section-title">
-            🎥 Upload Videos
+
+            <i class="fa-solid fa-video"></i>
+
+            <h2>
+                Upload Videos
+            </h2>
+
         </div>
 
 
-        <div class="folders">
+        <div class="sports-grid">
 
 
-            <div class="folder">
+            <div class="card">
 
-                <div class="folder-icon">⚽</div>
+                <div class="card-icon">
+                    <i class="fa-solid fa-futbol"></i>
+                </div>
 
                 <h3>Football</h3>
 
-                <a
-                    class="upload-button"
-                    href="https://github.com/clintonncube/silveira-high-sports-gallery/upload/main/videos/football"
-                    target="_blank">
+                <p>
+                    Add football videos.
+                </p>
 
-                    Upload
+                <a
+                    class="upload-btn"
+                    target="_blank"
+                    href="https://github.com/clintonncube/silveira-high-sports-gallery/upload/main/videos/football">
+
+                    <i class="fa-solid fa-upload"></i>
+                    Upload Videos
 
                 </a>
 
             </div>
 
 
-            <div class="folder">
+            <div class="card">
 
-                <div class="folder-icon">🏀</div>
+                <div class="card-icon">
+                    <i class="fa-solid fa-basketball"></i>
+                </div>
 
                 <h3>Basketball</h3>
 
-                <a
-                    class="upload-button"
-                    href="https://github.com/clintonncube/silveira-high-sports-gallery/upload/main/videos/basketball"
-                    target="_blank">
+                <p>
+                    Add basketball videos.
+                </p>
 
-                    Upload
+                <a
+                    class="upload-btn"
+                    target="_blank"
+                    href="https://github.com/clintonncube/silveira-high-sports-gallery/upload/main/videos/basketball">
+
+                    <i class="fa-solid fa-upload"></i>
+                    Upload Videos
 
                 </a>
 
             </div>
 
 
-            <div class="folder">
+            <div class="card">
 
-                <div class="folder-icon">🏐</div>
+                <div class="card-icon">
+                    <i class="fa-solid fa-volleyball"></i>
+                </div>
 
                 <h3>Volleyball</h3>
 
-                <a
-                    class="upload-button"
-                    href="https://github.com/clintonncube/silveira-high-sports-gallery/upload/main/videos/volleyball"
-                    target="_blank">
+                <p>
+                    Add volleyball videos.
+                </p>
 
-                    Upload
+                <a
+                    class="upload-btn"
+                    target="_blank"
+                    href="https://github.com/clintonncube/silveira-high-sports-gallery/upload/main/videos/volleyball">
+
+                    <i class="fa-solid fa-upload"></i>
+                    Upload Videos
 
                 </a>
 
             </div>
 
 
-            <div class="folder">
+            <div class="card">
 
-                <div class="folder-icon">🎾</div>
+                <div class="card-icon">
+                    <i class="fa-solid fa-table-tennis-paddle-ball"></i>
+                </div>
 
                 <h3>Tennis</h3>
 
-                <a
-                    class="upload-button"
-                    href="https://github.com/clintonncube/silveira-high-sports-gallery/upload/main/videos/tennis"
-                    target="_blank">
+                <p>
+                    Add tennis videos.
+                </p>
 
-                    Upload
+                <a
+                    class="upload-btn"
+                    target="_blank"
+                    href="https://github.com/clintonncube/silveira-high-sports-gallery/upload/main/videos/tennis">
+
+                    <i class="fa-solid fa-upload"></i>
+                    Upload Videos
 
                 </a>
 
             </div>
 
 
-            <div class="folder">
+            <div class="card">
 
-                <div class="folder-icon">🏐</div>
+                <div class="card-icon">
+                    <i class="fa-solid fa-circle-dot"></i>
+                </div>
 
                 <h3>Netball</h3>
 
-                <a
-                    class="upload-button"
-                    href="https://github.com/clintonncube/silveira-high-sports-gallery/upload/main/videos/netball"
-                    target="_blank">
+                <p>
+                    Add netball videos.
+                </p>
 
-                    Upload
+                <a
+                    class="upload-btn"
+                    target="_blank"
+                    href="https://github.com/clintonncube/silveira-high-sports-gallery/upload/main/videos/netball">
+
+                    <i class="fa-solid fa-upload"></i>
+                    Upload Videos
 
                 </a>
 
             </div>
 
 
-            <div class="folder">
+            <div class="card">
 
-                <div class="folder-icon">🏀</div>
+                <div class="card-icon">
+                    <i class="fa-solid fa-basketball"></i>
+                </div>
 
                 <h3>Korfball</h3>
 
-                <a
-                    class="upload-button"
-                    href="https://github.com/clintonncube/silveira-high-sports-gallery/upload/main/videos/korfball"
-                    target="_blank">
+                <p>
+                    Add korfball videos.
+                </p>
 
-                    Upload
+                <a
+                    class="upload-btn"
+                    target="_blank"
+                    href="https://github.com/clintonncube/silveira-high-sports-gallery/upload/main/videos/korfball">
+
+                    <i class="fa-solid fa-upload"></i>
+                    Upload Videos
 
                 </a>
 
             </div>
 
 
-            <div class="folder">
+            <div class="card">
 
-                <div class="folder-icon">🤾</div>
+                <div class="card-icon">
+                    <i class="fa-solid fa-hand"></i>
+                </div>
 
                 <h3>Handball</h3>
 
-                <a
-                    class="upload-button"
-                    href="https://github.com/clintonncube/silveira-high-sports-gallery/upload/main/videos/handball"
-                    target="_blank">
+                <p>
+                    Add handball videos.
+                </p>
 
-                    Upload
+                <a
+                    class="upload-btn"
+                    target="_blank"
+                    href="https://github.com/clintonncube/silveira-high-sports-gallery/upload/main/videos/handball">
+
+                    <i class="fa-solid fa-upload"></i>
+                    Upload Videos
 
                 </a>
 
             </div>
 
 
-            <div class="folder">
+            <div class="card">
 
-                <div class="folder-icon">🏃</div>
+                <div class="card-icon">
+                    <i class="fa-solid fa-person-running"></i>
+                </div>
 
                 <h3>Athletics</h3>
 
-                <a
-                    class="upload-button"
-                    href="https://github.com/clintonncube/silveira-high-sports-gallery/upload/main/videos/athletics"
-                    target="_blank">
+                <p>
+                    Add athletics videos.
+                </p>
 
-                    Upload
+                <a
+                    class="upload-btn"
+                    target="_blank"
+                    href="https://github.com/clintonncube/silveira-high-sports-gallery/upload/main/videos/athletics">
+
+                    <i class="fa-solid fa-upload"></i>
+                    Upload Videos
 
                 </a>
 
             </div>
 
 
-            <div class="folder">
+            <div class="card">
 
-                <div class="folder-icon">🎥</div>
+                <div class="card-icon">
+                    <i class="fa-solid fa-star"></i>
+                </div>
 
                 <h3>Other</h3>
 
-                <a
-                    class="upload-button"
-                    href="https://github.com/clintonncube/silveira-high-sports-gallery/upload/main/videos/other"
-                    target="_blank">
+                <p>
+                    Add other school videos.
+                </p>
 
-                    Upload
+                <a
+                    class="upload-btn"
+                    target="_blank"
+                    href="https://github.com/clintonncube/silveira-high-sports-gallery/upload/main/videos/other">
+
+                    <i class="fa-solid fa-upload"></i>
+                    Upload Videos
 
                 </a>
 
@@ -611,45 +859,73 @@
 
         </div>
 
-    </div>
+    </section>
 
 
     <!-- TIKTOK -->
 
-    <div class="tiktok">
+    <section class="section">
 
-        <h2>🎵 TikTok Sports Desk</h2>
+        <div class="tiktok">
+
+            <i class="fa-brands fa-tiktok"></i>
+
+            <h2>
+                Silveira High Sports TikTok
+            </h2>
+
+            <p>
+                @silveirahighsportsdesk
+            </p>
+
+            <a
+                href="https://www.tiktok.com/@silveirahighsportsdesk"
+                target="_blank">
+
+                <i class="fa-brands fa-tiktok"></i>
+                Open TikTok
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- NOTICE -->
+
+    <div class="notice">
+
+        <strong>
+            Important:
+        </strong>
 
         <p>
-            Open the official Silveira High Sports Desk TikTok account.
+            This dashboard uses GitHub's own upload pages.
+            Your GitHub password or access token is never
+            stored in this webpage.
         </p>
-
-        <a
-            class="tiktok-button"
-            href="https://www.tiktok.com/@silveirahighsportsdesk"
-            target="_blank"
-            rel="noopener noreferrer">
-
-            Open @silveirahighsportsdesk
-
-        </a>
 
     </div>
 
-</div>
+</main>
 
+<!-- FOOTER -->
 
 <footer>
 
     <p>
-        © 2026 Silveira High Sports Gallery
+        <strong>
+            Silveira High Sports Gallery
+        </strong>
     </p>
 
     <p>
-        Sports • School Activities • Teamwork • Achievement
+        Admin Dashboard • 2026
     </p>
 
 </footer>
 
 </body>
+
 </html>
